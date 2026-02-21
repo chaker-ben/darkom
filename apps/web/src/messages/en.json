@@ -33,7 +33,45 @@
     "surface": "{value} m²",
     "perMonth": "/month",
     "recent": "Recent listings",
-    "seeAll": "See all"
+    "seeAll": "See all",
+    "noImage": "No image",
+    "form": {
+      "pageTitle": "Post a listing",
+      "type": "Transaction type",
+      "typeSale": "Sale",
+      "typeRent": "Rent",
+      "category": "Category",
+      "categoryApartment": "Apartment",
+      "categoryHouse": "House",
+      "categoryLand": "Land",
+      "categoryCommercial": "Commercial",
+      "categoryOffice": "Office",
+      "titleFr": "Title (French)",
+      "titleAr": "Title (Arabic)",
+      "titleEn": "Title (English)",
+      "descriptionFr": "Description",
+      "price": "Price (DT)",
+      "surface": "Surface (m²)",
+      "rooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "governorate": "Governorate",
+      "selectGovernorate": "Select a governorate",
+      "city": "City",
+      "images": "Photos",
+      "uploadImages": "Add photos",
+      "uploading": "Uploading...",
+      "dragOrClick": "Drag images here or click to browse",
+      "image": "Image",
+      "removeImage": "Remove image",
+      "submit": "Post listing"
+    },
+    "detail": {
+      "contact": "Contact seller",
+      "specs": "Specifications",
+      "description": "Description",
+      "location": "Location",
+      "views": "{count} views"
+    }
   },
   "categories": {
     "apartment": "Apartment",
@@ -80,6 +118,39 @@
     "hasAccount": "Already have an account?",
     "signUpLink": "Sign up",
     "signInLink": "Sign in"
+  },
+  "dashboard": {
+    "title": "My listings",
+    "newListing": "New listing",
+    "empty": "You haven't posted any listings yet",
+    "view": "View",
+    "views": "{count} views",
+    "status": {
+      "VERIFIED": "Verified",
+      "PENDING": "Pending",
+      "REJECTED": "Rejected",
+      "DRAFT": "Draft",
+      "SOLD": "Sold"
+    }
+  },
+  "buy": {
+    "title": "Buy property",
+    "subtitle": "Find the perfect property to buy in Tunisia"
+  },
+  "rent": {
+    "title": "Rent property",
+    "subtitle": "Find the perfect property to rent in Tunisia"
+  },
+  "filters": {
+    "governorate": "Governorate",
+    "allGovernorates": "All governorates",
+    "minPrice": "Min price",
+    "maxPrice": "Max price",
+    "rooms": "Bedrooms",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {current} of {total}",
+    "results": "{count} results"
   },
   "metadata": {
     "title": "DARKOM — Real Estate & Services in Tunisia",

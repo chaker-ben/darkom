@@ -8,6 +8,7 @@ const intlMiddleware = createMiddleware(routing);
 const isProtectedRoute = createRouteMatcher([
   '/(fr|ar|en)/dashboard(.*)',
   '/(fr|ar|en)/admin(.*)',
+  '/(fr|ar|en)/listings/new',
 ]);
 
 const isApiRoute = createRouteMatcher(['/api(.*)']);

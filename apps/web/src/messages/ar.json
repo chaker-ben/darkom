@@ -33,7 +33,45 @@
     "surface": "{value} م²",
     "perMonth": "/شهر",
     "recent": "أحدث الإعلانات",
-    "seeAll": "عرض الكل"
+    "seeAll": "عرض الكل",
+    "noImage": "لا توجد صورة",
+    "form": {
+      "pageTitle": "نشر إعلان",
+      "type": "نوع المعاملة",
+      "typeSale": "بيع",
+      "typeRent": "إيجار",
+      "category": "الفئة",
+      "categoryApartment": "شقة",
+      "categoryHouse": "منزل",
+      "categoryLand": "أرض",
+      "categoryCommercial": "تجاري",
+      "categoryOffice": "مكتب",
+      "titleFr": "العنوان (فرنسي)",
+      "titleAr": "العنوان (عربي)",
+      "titleEn": "العنوان (إنجليزي)",
+      "descriptionFr": "الوصف",
+      "price": "السعر (دينار)",
+      "surface": "المساحة (م²)",
+      "rooms": "الغرف",
+      "bathrooms": "الحمامات",
+      "governorate": "الولاية",
+      "selectGovernorate": "اختر ولاية",
+      "city": "المدينة",
+      "images": "الصور",
+      "uploadImages": "إضافة صور",
+      "uploading": "جاري الرفع...",
+      "dragOrClick": "اسحب الصور هنا أو انقر للاختيار",
+      "image": "صورة",
+      "removeImage": "حذف الصورة",
+      "submit": "نشر الإعلان"
+    },
+    "detail": {
+      "contact": "تواصل مع البائع",
+      "specs": "المواصفات",
+      "description": "الوصف",
+      "location": "الموقع",
+      "views": "{count} مشاهدة"
+    }
   },
   "categories": {
     "apartment": "شقق",
@@ -80,6 +118,39 @@
     "hasAccount": "لديك حساب بالفعل؟",
     "signUpLink": "إنشاء حساب",
     "signInLink": "تسجيل الدخول"
+  },
+  "dashboard": {
+    "title": "إعلاناتي",
+    "newListing": "إعلان جديد",
+    "empty": "لم تنشر أي إعلان بعد",
+    "view": "عرض",
+    "views": "{count} مشاهدة",
+    "status": {
+      "VERIFIED": "موثّق",
+      "PENDING": "قيد المراجعة",
+      "REJECTED": "مرفوض",
+      "DRAFT": "مسودة",
+      "SOLD": "مباع"
+    }
+  },
+  "buy": {
+    "title": "شراء عقار",
+    "subtitle": "ابحث عن العقار المثالي للشراء في تونس"
+  },
+  "rent": {
+    "title": "استئجار عقار",
+    "subtitle": "ابحث عن العقار المثالي للاستئجار في تونس"
+  },
+  "filters": {
+    "governorate": "الولاية",
+    "allGovernorates": "جميع الولايات",
+    "minPrice": "السعر الأدنى",
+    "maxPrice": "السعر الأقصى",
+    "rooms": "الغرف",
+    "previous": "السابق",
+    "next": "التالي",
+    "page": "صفحة {current} من {total}",
+    "results": "{count} نتيجة"
   },
   "metadata": {
     "title": "داركم — عقارات وخدمات في تونس",

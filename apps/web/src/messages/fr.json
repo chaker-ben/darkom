@@ -33,7 +33,45 @@
     "surface": "{value} m²",
     "perMonth": "/mois",
     "recent": "Annonces récentes",
-    "seeAll": "Voir tout"
+    "seeAll": "Voir tout",
+    "noImage": "Pas d'image",
+    "form": {
+      "pageTitle": "Publier une annonce",
+      "type": "Type de transaction",
+      "typeSale": "Vente",
+      "typeRent": "Location",
+      "category": "Catégorie",
+      "categoryApartment": "Appartement",
+      "categoryHouse": "Maison",
+      "categoryLand": "Terrain",
+      "categoryCommercial": "Commerce",
+      "categoryOffice": "Bureau",
+      "titleFr": "Titre (Français)",
+      "titleAr": "Titre (Arabe)",
+      "titleEn": "Titre (Anglais)",
+      "descriptionFr": "Description",
+      "price": "Prix (DT)",
+      "surface": "Surface (m²)",
+      "rooms": "Chambres",
+      "bathrooms": "Salles de bain",
+      "governorate": "Gouvernorat",
+      "selectGovernorate": "Sélectionner un gouvernorat",
+      "city": "Ville",
+      "images": "Photos",
+      "uploadImages": "Ajouter des photos",
+      "uploading": "Envoi en cours...",
+      "dragOrClick": "Glissez vos images ici ou cliquez pour parcourir",
+      "image": "Image",
+      "removeImage": "Supprimer l'image",
+      "submit": "Publier l'annonce"
+    },
+    "detail": {
+      "contact": "Contacter le vendeur",
+      "specs": "Caractéristiques",
+      "description": "Description",
+      "location": "Localisation",
+      "views": "{count} vues"
+    }
   },
   "categories": {
     "apartment": "Appartement",
@@ -80,6 +118,39 @@
     "hasAccount": "Déjà un compte ?",
     "signUpLink": "S'inscrire",
     "signInLink": "Se connecter"
+  },
+  "dashboard": {
+    "title": "Mes annonces",
+    "newListing": "Nouvelle annonce",
+    "empty": "Vous n'avez pas encore publié d'annonce",
+    "view": "Voir",
+    "views": "{count} vues",
+    "status": {
+      "VERIFIED": "Vérifié",
+      "PENDING": "En attente",
+      "REJECTED": "Rejeté",
+      "DRAFT": "Brouillon",
+      "SOLD": "Vendu"
+    }
+  },
+  "buy": {
+    "title": "Acheter un bien",
+    "subtitle": "Trouvez le bien immobilier idéal à acheter en Tunisie"
+  },
+  "rent": {
+    "title": "Louer un bien",
+    "subtitle": "Trouvez le bien immobilier idéal à louer en Tunisie"
+  },
+  "filters": {
+    "governorate": "Gouvernorat",
+    "allGovernorates": "Tous les gouvernorats",
+    "minPrice": "Prix min",
+    "maxPrice": "Prix max",
+    "rooms": "Chambres",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "page": "Page {current} sur {total}",
+    "results": "{count} résultats"
   },
   "metadata": {
     "title": "DARKOM — Immobilier & Services en Tunisie",
