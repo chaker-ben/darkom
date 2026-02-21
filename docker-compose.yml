@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: darkom-db
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: darkom
+      POSTGRES_PASSWORD: darkom_dev_2024
+      POSTGRES_DB: darkom
+    volumes:
+      - darkom_pgdata:/var/lib/postgresql/data
+
+volumes:
+  darkom_pgdata:

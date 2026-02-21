@@ -72,6 +72,15 @@
     "cancel": "Cancel",
     "currency": "DT"
   },
+  "auth": {
+    "signInTitle": "Sign in",
+    "signUpTitle": "Create an account",
+    "orContinueWith": "or continue with",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUpLink": "Sign up",
+    "signInLink": "Sign in"
+  },
   "metadata": {
     "title": "DARKOM — Real Estate & Services in Tunisia",
     "description": "Find your perfect home, rent an apartment or contact a trusted craftsman. Verified listings across Tunisia."

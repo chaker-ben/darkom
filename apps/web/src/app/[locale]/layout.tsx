@@ -2,12 +2,14 @@ import '../globals.css';
 
 import { notFound } from 'next/navigation';
 
+import { ClerkProvider } from '@clerk/nextjs';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 
 import { getDirection, isRTL } from '@/i18n/config';
 import type { Locale } from '@/i18n/config';
 import { routing } from '@/i18n/navigation';
+import { getClerkLocalization } from '@/lib/clerk-locales';
 
 import type { Metadata } from 'next';
 
@@ -67,12 +69,19 @@ export default async function LocaleLayout({
   const rtl = isRTL(locale as Locale);
 
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning>
-      <body className={rtl ? 'font-arabic' : 'font-sans'}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <ClerkProvider
+      localization={getClerkLocalization(locale as Locale)}
+      signInUrl={`/${locale}/sign-in`}
+      signUpUrl={`/${locale}/sign-up`}
+      afterSignOutUrl={`/${locale}`}
+    >
+      <html lang={locale} dir={dir} suppressHydrationWarning>
+        <body className={rtl ? 'font-arabic' : 'font-sans'}>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

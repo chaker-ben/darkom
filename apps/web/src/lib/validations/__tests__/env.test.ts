@@ -17,6 +17,7 @@ describe('validateEnv', () => {
     process.env.DATABASE_URL = 'postgresql://user:pass@localhost:5432/darkom';
     process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = 'pk_test_xxx';
     process.env.CLERK_SECRET_KEY = 'sk_test_xxx';
+    process.env.CLERK_WEBHOOK_SIGNING_SECRET = 'whsec_test_xxx';
 
     expect(() => validateEnv()).not.toThrow();
   });
@@ -41,6 +42,7 @@ describe('validateEnv', () => {
     process.env.DATABASE_URL = 'postgresql://user:pass@localhost:5432/darkom';
     process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = 'pk_test_xxx';
     process.env.CLERK_SECRET_KEY = 'sk_test_xxx';
+    process.env.CLERK_WEBHOOK_SIGNING_SECRET = 'whsec_test_xxx';
     process.env.NEXT_PUBLIC_APP_URL = 'https://darkom.com';
     process.env.NEXT_PUBLIC_MAPBOX_TOKEN = 'pk.xxx';
 

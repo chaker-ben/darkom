@@ -10,7 +10,12 @@ const isProtectedRoute = createRouteMatcher([
   '/(fr|ar|en)/admin(.*)',
 ]);
 
+const isApiRoute = createRouteMatcher(['/api(.*)']);
+
 export default clerkMiddleware(async (auth, request) => {
+  if (isApiRoute(request)) {
+    return;
+  }
   if (isProtectedRoute(request)) {
     await auth.protect();
   }

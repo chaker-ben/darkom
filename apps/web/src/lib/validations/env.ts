@@ -6,6 +6,7 @@ const envSchema = z.object({
   CLERK_SECRET_KEY: z.string().min(1),
   NEXT_PUBLIC_APP_URL: z.string().url().optional(),
   NEXT_PUBLIC_MAPBOX_TOKEN: z.string().optional(),
+  CLERK_WEBHOOK_SIGNING_SECRET: z.string().min(1),
   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string().optional(),
 });
 

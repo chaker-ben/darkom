@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { Badge, Button, Card, CardBody, FilterTabs, Skeleton } from '@darkom/ui';
 import { useTranslations } from 'next-intl';
 
+import { Header } from '@/components/layout/header';
+
 export default function HomePage() {
   const t = useTranslations();
   const [category, setCategory] = useState('all');
@@ -20,6 +22,7 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen">
+      <Header />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-900 via-primary-700 to-primary-500 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">

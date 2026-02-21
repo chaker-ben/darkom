@@ -72,6 +72,15 @@
     "cancel": "Annuler",
     "currency": "DT"
   },
+  "auth": {
+    "signInTitle": "Connexion",
+    "signUpTitle": "Créer un compte",
+    "orContinueWith": "ou continuer avec",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "signUpLink": "S'inscrire",
+    "signInLink": "Se connecter"
+  },
   "metadata": {
     "title": "DARKOM — Immobilier & Services en Tunisie",
     "description": "Trouvez votre maison idéale, louez un appartement ou contactez un artisan de confiance. Annonces vérifiées partout en Tunisie."

@@ -10,6 +10,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@clerk/backend": "^2.32.0",
+    "@clerk/localizations": "^3.37.0",
     "@clerk/nextjs": "^6.9.0",
     "@darkom/config": "workspace:*",
     "@darkom/db": "workspace:*",
