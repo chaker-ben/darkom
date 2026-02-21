@@ -1,0 +1,27 @@
+# Claude Code
+.claude/settings.local.json
+.claude/session-log.md
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build
+.next/
+dist/
+build/
+.expo/
+
+# Turbo
+.turbo/
+
+# Test
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db

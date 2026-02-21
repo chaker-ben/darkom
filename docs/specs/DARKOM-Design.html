@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DARKOM — Design Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1B4F8A;
+    --primary-light: #2E75B6;
+    --primary-dark: #0F2D52;
+    --accent: #F5A623;
+    --accent-dark: #CC7A00;
+    --bg: #F0F4F9;
+    --card: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #6B7A99;
+    --border: #E2E8F0;
+    --success: #16A34A;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(27,79,138,0.10);
+    --shadow-lg: 0 12px 48px rgba(27,79,138,0.16);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Sora',sans-serif; background:#E8EDF5; color:var(--text); min-height:100vh; }
+  
+  /* ===== LAYOUT ===== */
+  .mockup-container { max-width:1400px; margin:0 auto; padding:32px 24px; }
+  
+  .section-title {
+    font-size:13px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+    color:var(--primary-light); margin-bottom:20px; display:flex; align-items:center; gap:10px;
+  }
+  .section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+  
+  /* ===== HEADER LABEL ===== */
+  .mockup-header {
+    text-align:center; padding:48px 0 40px;
+  }
+  .mockup-header .logo {
+    font-size:42px; font-weight:800; color:var(--primary);
+    letter-spacing:-1px; display:inline-flex; align-items:center; gap:12px;
+  }
+  .mockup-header .logo span { color:var(--accent); }
+  .mockup-header p { color:var(--muted); margin-top:8px; font-size:15px; }
+  .lang-badges { display:flex; gap:8px; justify-content:center; margin-top:16px; }
+  .lang-badge {
+    padding:4px 14px; border-radius:20px; font-size:12px; font-weight:600;
+    background:var(--primary); color:#fff;
+  }
+  .lang-badge.ar { font-family:'Noto Naskh Arabic',serif; background:var(--accent); color:#fff; }
+  
+  /* ===== GRID ===== */
+  .designs-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:48px; }
+  .designs-grid.triple { grid-template-columns:1fr 1fr 1fr; }
+  .designs-grid.full { grid-template-columns:1fr; }
+  
+  /* ===== BROWSER FRAME ===== */
+  .browser-frame {
+    background:#FFFFFF; border-radius:20px; overflow:hidden;
+    box-shadow:var(--shadow-lg); border:1px solid var(--border);
+  }
+  .browser-bar {
+    background:#F1F5F9; padding:12px 16px; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .browser-dots { display:flex; gap:6px; }
+  .browser-dot { width:11px; height:11px; border-radius:50%; }
+  .browser-dot.red { background:#FF5F57; }
+  .browser-dot.yellow { background:#FFBD2E; }
+  .browser-dot.green { background:#28CA41; }
+  .browser-url {
+    flex:1; background:#fff; border-radius:8px; padding:5px 12px;
+    font-size:12px; color:var(--muted); border:1px solid var(--border); margin:0 10px;
+  }
+  
+  /* ===== PHONE FRAME ===== */
+  .phone-wrap { display:flex; justify-content:center; }
+  .phone-frame {
+    width:300px; background:#1A1A2E; border-radius:40px;
+    padding:12px; box-shadow:var(--shadow-lg), 0 0 0 2px #333;
+    position:relative;
+  }
+  .phone-notch {
+    width:90px; height:26px; background:#1A1A2E; border-radius:0 0 16px 16px;
+    position:absolute; top:12px; left:50%; transform:translateX(-50%); z-index:10;
+    display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+  .phone-notch-dot { width:10px; height:10px; border-radius:50%; background:#222; border:1px solid #444; }
+  .phone-screen {
+    background:var(--bg); border-radius:30px; overflow:hidden;
+    min-height:580px; position:relative;
+  }
+  
+  /* ===== WEB LANDING PAGE ===== */
+  .web-nav {
+    background:var(--primary-dark); padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .web-nav .nav-logo { color:#fff; font-weight:800; font-size:20px; display:flex; align-items:center; gap:8px; }
+  .web-nav .nav-logo .dot { color:var(--accent); }
+  .nav-links { display:flex; gap:20px; }
+  .nav-link { color:rgba(255,255,255,0.75); font-size:13px; cursor:pointer; transition:color 0.2s; }
+  .nav-link:hover { color:#fff; }
+  .nav-cta {
+    background:var(--accent); color:#fff; border:none; padding:8px 18px;
+    border-radius:8px; font-size:13px; font-weight:600; cursor:pointer;
+  }
+  .lang-switcher {
+    display:flex; gap:4px; background:rgba(255,255,255,0.1);
+    border-radius:8px; padding:3px;
+  }
+  .lang-btn {
+    padding:3px 10px; border-radius:6px; font-size:11px; font-weight:600;
+    color:rgba(255,255,255,0.6); cursor:pointer; transition:all 0.2s;
+  }
+  .lang-btn.active { background:rgba(255,255,255,0.2); color:#fff; }
+  
+  .web-hero {
+    background:linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #1A5FA0 100%);
+    padding:48px 24px 56px; position:relative; overflow:hidden;
+  }
+  .web-hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { position:relative; z-index:1; }
+  .hero-eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(245,166,35,0.2); border:1px solid rgba(245,166,35,0.4);
+    border-radius:20px; padding:4px 14px; font-size:11px; font-weight:600;
+    color:var(--accent); margin-bottom:20px; letter-spacing:0.5px;
+  }
+  .hero-title {
+    font-size:32px; font-weight:800; color:#fff;
+    line-height:1.2; margin-bottom:8px; letter-spacing:-0.5px;
+  }
+  .hero-title .highlight { color:var(--accent); }
+  .hero-subtitle { color:rgba(255,255,255,0.7); font-size:14px; line-height:1.6; margin-bottom:24px; }
+  .hero-search {
+    background:#fff; border-radius:12px; padding:8px;
+    display:flex; gap:8px; margin-bottom:20px; box-shadow:var(--shadow-lg);
+  }
+  .search-input {
+    flex:1; border:none; outline:none; font-size:13px; padding:6px 10px;
+    font-family:'Sora',sans-serif; color:var(--text); background:transparent;
+  }
+  .search-type {
+    background:var(--bg); border:none; outline:none; font-size:12px;
+    padding:6px 12px; border-radius:8px; color:var(--muted); font-family:'Sora',sans-serif;
+  }
+  .search-btn {
+    background:var(--primary); color:#fff; border:none; padding:10px 18px;
+    border-radius:8px; font-size:13px; font-weight:600; cursor:pointer;
+    display:flex; align-items:center; gap:6px;
+  }
+  .hero-stats { display:flex; gap:20px; }
+  .hero-stat { color:rgba(255,255,255,0.8); font-size:12px; }
+  .hero-stat strong { color:#fff; display:block; font-size:18px; font-weight:700; }
+  
+  /* Listing Cards */
+  .listings-section { padding:20px; background:var(--bg); }
+  .filter-tabs {
+    display:flex; gap:8px; margin-bottom:16px; overflow-x:auto;
+    scrollbar-width:none; padding-bottom:4px;
+  }
+  .filter-tab {
+    padding:7px 16px; border-radius:20px; font-size:12px; font-weight:500;
+    border:1.5px solid var(--border); background:#fff; color:var(--muted);
+    cursor:pointer; white-space:nowrap;
+  }
+  .filter-tab.active { background:var(--primary); color:#fff; border-color:var(--primary); }
+  
+  .cards-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  .listing-card {
+    background:#fff; border-radius:14px; overflow:hidden;
+    box-shadow:0 2px 12px rgba(0,0,0,0.06); cursor:pointer; transition:transform 0.2s;
+  }
+  .listing-card:hover { transform:translateY(-3px); }
+  .card-img {
+    height:110px; position:relative; overflow:hidden;
+    background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display:flex; align-items:flex-end; justify-content:space-between; padding:8px;
+  }
+  .card-img.img1 { background:linear-gradient(135deg, #1B4F8A 0%, #2E75B6 100%); }
+  .card-img.img2 { background:linear-gradient(135deg, #134e4a 0%, #0f766e 100%); }
+  .card-img.img3 { background:linear-gradient(135deg, #7c2d12 0%, #c2410c 100%); }
+  .card-img-icon { font-size:36px; position:absolute; right:12px; top:50%; transform:translateY(-50%); opacity:0.4; }
+  .card-badge {
+    background:rgba(0,0,0,0.5); backdrop-filter:blur(4px);
+    color:#fff; font-size:10px; font-weight:600; padding:3px 8px; border-radius:6px;
+    letter-spacing:0.5px;
+  }
+  .card-verified {
+    background:var(--success); color:#fff; font-size:9px; font-weight:700;
+    padding:3px 7px; border-radius:6px; display:flex; align-items:center; gap:3px;
+  }
+  .card-body { padding:10px; }
+  .card-price { font-size:15px; font-weight:700; color:var(--primary); }
+  .card-price span { font-size:11px; font-weight:400; color:var(--muted); }
+  .card-title { font-size:11px; color:var(--text); margin:3px 0; font-weight:500; }
+  .card-meta { font-size:10px; color:var(--muted); display:flex; gap:8px; align-items:center; }
+  .card-meta-dot { width:3px; height:3px; border-radius:50%; background:var(--border); }
+  
+  /* ===== MOBILE SCREENS ===== */
+  .mobile-status {
+    background:var(--primary-dark); padding:10px 20px 8px;
+    display:flex; justify-content:space-between; font-size:10px; color:rgba(255,255,255,0.8);
+    font-weight:600;
+  }
+  .mobile-home-header {
+    background:linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 100%);
+    padding:16px 16px 24px;
+  }
+  .mobile-greeting { color:rgba(255,255,255,0.7); font-size:12px; }
+  .mobile-greeting strong { color:#fff; font-size:16px; display:block; margin-top:2px; font-weight:700; }
+  .mobile-search {
+    background:rgba(255,255,255,0.15); backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,0.2); border-radius:12px;
+    padding:10px 14px; display:flex; align-items:center; gap:8px;
+    color:rgba(255,255,255,0.6); font-size:12px; margin-top:14px;
+  }
+  .mobile-categories {
+    display:flex; gap:8px; padding:14px 16px; overflow-x:auto;
+    scrollbar-width:none; background:#fff;
+  }
+  .mobile-cat {
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    min-width:58px; cursor:pointer;
+  }
+  .mobile-cat-icon {
+    width:46px; height:46px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center; font-size:20px;
+  }
+  .mobile-cat-icon.blue { background:#EEF5FF; }
+  .mobile-cat-icon.green { background:#ECFDF5; }
+  .mobile-cat-icon.orange { background:#FFF7ED; }
+  .mobile-cat-icon.purple { background:#F5F3FF; }
+  .mobile-cat-label { font-size:10px; color:var(--muted); font-weight:500; text-align:center; }
+  
+  .mobile-section-header {
+    padding:14px 16px 8px; display:flex; justify-content:space-between; align-items:center;
+    background:#fff;
+  }
+  .mobile-section-title { font-size:14px; font-weight:700; color:var(--text); }
+  .mobile-see-all { font-size:11px; color:var(--primary-light); font-weight:500; }
+  
+  .mobile-cards { display:flex; gap:10px; padding:0 16px 14px; overflow-x:auto; scrollbar-width:none; background:#fff; }
+  .mobile-card {
+    min-width:160px; border-radius:12px; overflow:hidden; background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,0.08); flex-shrink:0;
+  }
+  .mobile-card-img {
+    height:88px; display:flex; align-items:flex-end; justify-content:space-between;
+    padding:6px; font-size:9px;
+  }
+  .mobile-card-img.c1 { background:linear-gradient(135deg, #1B4F8A, #2E75B6); }
+  .mobile-card-img.c2 { background:linear-gradient(135deg, #134e4a, #0f766e); }
+  .mobile-card-img.c3 { background:linear-gradient(135deg, #7c2d12, #c2410c); }
+  .mobile-card-body { padding:8px; }
+  .mobile-card-price { font-size:13px; font-weight:700; color:var(--primary); }
+  .mobile-card-title { font-size:10px; color:var(--muted); margin-top:2px; }
+  
+  /* Bottom Nav */
+  .mobile-bottom-nav {
+    background:#fff; border-top:1px solid var(--border);
+    display:flex; justify-content:space-around; padding:10px 0 8px;
+    position:sticky; bottom:0;
+  }
+  .nav-item {
+    display:flex; flex-direction:column; align-items:center; gap:3px;
+    font-size:9px; color:var(--muted); font-weight:500; cursor:pointer;
+  }
+  .nav-item.active { color:var(--primary); }
+  .nav-item-icon { font-size:18px; }
+  
+  /* ===== RTL PREVIEW ===== */
+  .rtl-preview {
+    background:#fff; border-radius:20px; padding:24px;
+    box-shadow:var(--shadow);
+  }
+  .rtl-preview[dir="rtl"] { font-family:'Noto Naskh Arabic',serif; }
+  .rtl-nav {
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--primary-dark); padding:12px 20px; border-radius:12px; margin-bottom:16px;
+  }
+  .rtl-logo { color:#fff; font-size:18px; font-weight:700; }
+  .rtl-links { display:flex; gap:16px; }
+  .rtl-link { color:rgba(255,255,255,0.7); font-size:13px; }
+  .rtl-search {
+    background:var(--bg); border-radius:10px; padding:10px 14px;
+    display:flex; align-items:center; gap:8px; margin-bottom:14px; direction:rtl;
+  }
+  .rtl-search-text { flex:1; color:var(--muted); font-size:13px; }
+  .rtl-cards-row { display:flex; gap:12px; flex-direction:row-reverse; }
+  .rtl-mini-card {
+    flex:1; background:var(--bg); border-radius:10px; padding:12px;
+    direction:rtl; text-align:right;
+  }
+  .rtl-card-price { font-size:14px; font-weight:700; color:var(--primary); margin-bottom:4px; }
+  .rtl-card-title { font-size:12px; color:var(--muted); }
+  .rtl-badge {
+    display:inline-block; background:var(--success); color:#fff;
+    font-size:10px; padding:2px 8px; border-radius:6px; margin-top:6px;
+  }
+
+  /* ===== PRO PROFILE (Mobile) ===== */
+  .pro-profile-header {
+    background:linear-gradient(160deg, var(--primary-dark), var(--primary));
+    padding:20px 16px; text-align:center; color:#fff;
+  }
+  .pro-avatar {
+    width:64px; height:64px; border-radius:20px; background:rgba(255,255,255,0.2);
+    margin:0 auto 10px; display:flex; align-items:center; justify-content:center;
+    font-size:28px; border:2px solid rgba(255,255,255,0.3);
+  }
+  .pro-name { font-size:16px; font-weight:700; }
+  .pro-category { font-size:12px; color:rgba(255,255,255,0.7); margin-top:2px; }
+  .pro-verified-tag {
+    display:inline-flex; align-items:center; gap:4px;
+    background:rgba(22,163,74,0.3); border:1px solid rgba(22,163,74,0.5);
+    border-radius:20px; padding:3px 10px; font-size:10px; font-weight:600;
+    color:#86efac; margin-top:8px;
+  }
+  .pro-stats-row {
+    display:flex; justify-content:space-around; background:#fff; padding:14px 16px;
+  }
+  .pro-stat { text-align:center; }
+  .pro-stat-value { font-size:18px; font-weight:700; color:var(--primary); }
+  .pro-stat-label { font-size:10px; color:var(--muted); }
+  .pro-services { padding:14px 16px; background:var(--bg); }
+  .service-chip {
+    display:inline-block; background:#fff; border:1px solid var(--border);
+    border-radius:20px; padding:5px 12px; font-size:11px; margin:3px;
+    color:var(--text); font-weight:500;
+  }
+  .review-item {
+    background:#fff; border-radius:10px; padding:10px 12px; margin:4px 0;
+  }
+  .review-header { display:flex; justify-content:space-between; margin-bottom:4px; }
+  .reviewer-name { font-size:11px; font-weight:600; }
+  .star-rating { color:var(--accent); font-size:11px; }
+  .review-text { font-size:10px; color:var(--muted); line-height:1.5; }
+  
+  /* ===== SUBSCRIPTION PAGE ===== */
+  .pricing-header {
+    background:var(--primary-dark); padding:20px; text-align:center; color:#fff;
+  }
+  .pricing-title { font-size:16px; font-weight:700; }
+  .pricing-subtitle { font-size:11px; color:rgba(255,255,255,0.6); margin-top:4px; }
+  .pricing-cards { padding:14px 16px; background:var(--bg); display:flex; flex-direction:column; gap:10px; }
+  .pricing-card {
+    background:#fff; border-radius:14px; padding:14px;
+    border:2px solid var(--border); position:relative;
+  }
+  .pricing-card.featured { border-color:var(--primary); }
+  .popular-badge {
+    position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+    background:var(--primary); color:#fff; font-size:10px; font-weight:700;
+    padding:3px 12px; border-radius:20px; white-space:nowrap;
+  }
+  .pricing-plan-name { font-size:13px; font-weight:700; color:var(--text); }
+  .pricing-plan-price { font-size:22px; font-weight:800; color:var(--primary); margin:4px 0; }
+  .pricing-plan-price span { font-size:12px; color:var(--muted); font-weight:400; }
+  .pricing-features { display:flex; flex-direction:column; gap:4px; margin:8px 0; }
+  .pricing-feature { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted); }
+  .pricing-feature .check { color:var(--success); }
+  .pricing-cta {
+    width:100%; padding:9px; border-radius:8px; border:none; font-size:12px;
+    font-weight:600; cursor:pointer; font-family:'Sora',sans-serif;
+  }
+  .pricing-cta.primary { background:var(--primary); color:#fff; }
+  .pricing-cta.outline { background:transparent; border:1.5px solid var(--border); color:var(--text); }
+  
+  /* LABELS */
+  .design-label {
+    background:var(--primary); color:#fff; padding:6px 16px;
+    border-radius:8px 8px 0 0; font-size:12px; font-weight:600;
+    display:inline-block; margin-bottom:0;
+  }
+  
+  .color-palette {
+    display:flex; gap:0; border-radius:12px; overflow:hidden; margin-top:8px;
+  }
+  .color-swatch { height:48px; flex:1; display:flex; align-items:flex-end; padding:4px 8px; }
+  .color-swatch span { font-size:9px; font-weight:600; color:rgba(255,255,255,0.8); }
+  
+  .font-showcase { padding:20px; background:#fff; border-radius:14px; margin-top:16px; }
+  .font-sample { margin-bottom:12px; }
+  .font-label { font-size:10px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .font-latin { font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:var(--text); }
+  .font-arabic-sample { font-family:'Noto Naskh Arabic',serif; font-size:22px; font-weight:700; color:var(--text); direction:rtl; }
+  
+  .tokens-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .token-card { background:#fff; border-radius:12px; padding:14px; }
+  .token-title { font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+</style>
+</head>
+<body>
+<div class="mockup-container">
+
+  <!-- HEADER -->
+  <div class="mockup-header">
+    <div class="logo">🏠 DARK<span>OM</span></div>
+    <p>Design System & Mockups — Web + Mobile Multilingue</p>
+    <div class="lang-badges">
+      <span class="lang-badge">🇫🇷 Français</span>
+      <span class="lang-badge ar">🇹🇳 العربية</span>
+      <span class="lang-badge">🇬🇧 English</span>
+    </div>
+  </div>
+
+  <!-- ===== 1. DESIGN TOKENS ===== -->
+  <div class="section-title">01 — Design System & Tokens</div>
+  <div class="designs-grid">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:var(--muted);margin-bottom:10px;">Palette couleurs</div>
+      <div class="color-palette">
+        <div class="color-swatch" style="background:#0F2D52;"><span>#0F2D52</span></div>
+        <div class="color-swatch" style="background:#1B4F8A;"><span>#1B4F8A</span></div>
+        <div class="color-swatch" style="background:#2E75B6;"><span>#2E75B6</span></div>
+        <div class="color-swatch" style="background:#5B9BD5;"><span>#5B9BD5</span></div>
+        <div class="color-swatch" style="background:#EEF5FF;"><span style="color:#1B4F8A">#EEF5FF</span></div>
+      </div>
+      <div class="color-palette" style="margin-top:4px;">
+        <div class="color-swatch" style="background:#CC7A00;"><span>#CC7A00</span></div>
+        <div class="color-swatch" style="background:#F5A623;"><span>#F5A623</span></div>
+        <div class="color-swatch" style="background:#FBBF24;"><span>#FBBF24</span></div>
+        <div class="color-swatch" style="background:#16A34A;"><span>#16A34A</span></div>
+        <div class="color-swatch" style="background:#DC2626;"><span>#DC2626</span></div>
+      </div>
+    </div>
+    <div class="font-showcase">
+      <div class="font-sample">
+        <div class="font-label">Display — Sora</div>
+        <div class="font-latin">Find your perfect home</div>
+        <div style="font-family:'Sora',sans-serif;font-size:14px;color:var(--muted);font-weight:300;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+      </div>
+      <div class="font-sample">
+        <div class="font-label">Arabic — Noto Naskh Arabic</div>
+        <div class="font-arabic-sample">ابحث عن منزل أحلامك</div>
+        <div style="font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--muted);direction:rtl;">أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 2. WEB LANDING ===== -->
+  <div class="section-title">02 — Web — Landing Page (Français)</div>
+  <div class="browser-frame">
+    <div class="browser-bar">
+      <div class="browser-dots">
+        <div class="browser-dot red"></div>
+        <div class="browser-dot yellow"></div>
+        <div class="browser-dot green"></div>
+      </div>
+      <div class="browser-url">🔒 darkom.com/fr</div>
+      <div class="lang-switcher">
+        <div class="lang-btn active">FR</div>
+        <div class="lang-btn">AR</div>
+        <div class="lang-btn">EN</div>
+      </div>
+    </div>
+    <!-- Nav -->
+    <div class="web-nav">
+      <div class="nav-logo">🏠 DARK<span class="dot">OM</span></div>
+      <div class="nav-links">
+        <span class="nav-link">Acheter</span>
+        <span class="nav-link">Louer</span>
+        <span class="nav-link">Artisans</span>
+        <span class="nav-link">Agences</span>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <span class="nav-link">Connexion</span>
+        <button class="nav-cta">Publier une annonce</button>
+      </div>
+    </div>
+    <!-- Hero -->
+    <div class="web-hero">
+      <div class="hero-content">
+        <div class="hero-eyebrow">✦ Annonces vérifiées • Artisans certifiés</div>
+        <div class="hero-title">
+          Trouvez votre <span class="highlight">maison idéale</span><br>
+          en Tunisie
+        </div>
+        <div class="hero-subtitle">La seule plateforme qui combine immobilier vérifié<br>et artisans de confiance — partout en Tunisie</div>
+        <div class="hero-search">
+          <span style="font-size:16px;">🔍</span>
+          <input class="search-input" placeholder="Ville, quartier, gouvernorat...">
+          <select class="search-type">
+            <option>Acheter</option>
+            <option>Louer</option>
+          </select>
+          <select class="search-type">
+            <option>Tout type</option>
+            <option>Appartement</option>
+            <option>Maison</option>
+          </select>
+          <button class="search-btn">Rechercher →</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>12,400+</strong>Annonces vérifiées</div>
+          <div class="hero-stat"><strong>3,200+</strong>Artisans certifiés</div>
+          <div class="hero-stat"><strong>24</strong>Gouvernorats</div>
+        </div>
+      </div>
+    </div>
+    <!-- Listings grid -->
+    <div class="listings-section">
+      <div class="filter-tabs">
+        <div class="filter-tab active">Tous</div>
+        <div class="filter-tab">Appartements</div>
+        <div class="filter-tab">Maisons</div>
+        <div class="filter-tab">Terrains</div>
+        <div class="filter-tab">Commerces</div>
+        <div class="filter-tab">Bureaux</div>
+        <div class="filter-tab">Récents</div>
+        <div class="filter-tab">Premium</div>
+      </div>
+      <div class="cards-grid">
+        <div class="listing-card">
+          <div class="card-img img1">
+            <div class="card-img-icon">🏢</div>
+            <span class="card-badge">À VENDRE</span>
+            <span class="card-verified">✓ Vérifié</span>
+          </div>
+          <div class="card-body">
+            <div class="card-price">185,000 DT</div>
+            <div class="card-title">Appartement S+2 moderne — Les Berges du Lac</div>
+            <div class="card-meta">95 m² <span class="card-meta-dot"></span> 2 ch <span class="card-meta-dot"></span> Tunis</div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="card-img img2">
+            <div class="card-img-icon">🏠</div>
+            <span class="card-badge">À LOUER</span>
+            <span class="card-verified">✓ Vérifié</span>
+          </div>
+          <div class="card-body">
+            <div class="card-price">1,200 DT<span>/mois</span></div>
+            <div class="card-title">Villa avec jardin — Ain Zaghouan Nord</div>
+            <div class="card-meta">180 m² <span class="card-meta-dot"></span> 4 ch <span class="card-meta-dot"></span> Tunis</div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="card-img img3">
+            <div class="card-img-icon">🏗️</div>
+            <span class="card-badge">TERRAIN</span>
+          </div>
+          <div class="card-body">
+            <div class="card-price">95,000 DT</div>
+            <div class="card-title">Terrain constructible — Sfax Centre</div>
+            <div class="card-meta">350 m² <span class="card-meta-dot"></span> Zone résidentielle <span class="card-meta-dot"></span> Sfax</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 3. WEB RTL ARABIC ===== -->
+  <div class="section-title" style="margin-top:32px;">03 — Web — Version Arabe (RTL)</div>
+  <div class="rtl-preview" dir="rtl">
+    <div class="rtl-nav">
+      <div class="rtl-logo">🏠 داركم</div>
+      <div class="rtl-links">
+        <span class="rtl-link">شراء</span>
+        <span class="rtl-link">إيجار</span>
+        <span class="rtl-link">الحرفيون</span>
+        <span class="rtl-link">الوكالات</span>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <span class="rtl-link" style="font-size:12px;">تسجيل الدخول</span>
+        <button class="nav-cta">نشر إعلان</button>
+      </div>
+    </div>
+    <div style="background:linear-gradient(160deg,var(--primary-dark),var(--primary));padding:24px;border-radius:12px;margin-bottom:16px;direction:rtl;">
+      <div style="color:var(--accent);font-size:12px;font-weight:600;margin-bottom:10px;">✦ إعلانات موثّقة • حرفيون معتمدون</div>
+      <div style="font-size:26px;font-weight:800;color:#fff;line-height:1.4;margin-bottom:8px;">ابحث عن <span style="color:var(--accent)">منزل أحلامك</span><br>في تونس</div>
+      <div style="color:rgba(255,255,255,0.7);font-size:13px;margin-bottom:18px;">المنصة الوحيدة التي تجمع بين العقارات الموثّقة والحرفيين الموثوقين</div>
+      <div class="rtl-search">
+        <span style="font-size:16px;">🔍</span>
+        <div class="rtl-search-text">المدينة، الحي، الولاية...</div>
+        <button class="nav-cta">بحث</button>
+      </div>
+    </div>
+    <div class="rtl-cards-row">
+      <div class="rtl-mini-card">
+        <div style="font-size:28px;margin-bottom:6px;">🏢</div>
+        <div class="rtl-card-price">185,000 دينار</div>
+        <div class="rtl-card-title">شقة من غرفتين — ضفاف البحيرة، تونس</div>
+        <div class="rtl-badge">✓ موثّق</div>
+      </div>
+      <div class="rtl-mini-card">
+        <div style="font-size:28px;margin-bottom:6px;">🔧</div>
+        <div class="rtl-card-price">أبو خالد — سبّاك</div>
+        <div class="rtl-card-title">⭐ 4.8 — تونس الكبرى — 127 تقييم</div>
+        <div class="rtl-badge">✓ معتمد</div>
+      </div>
+      <div class="rtl-mini-card">
+        <div style="font-size:28px;margin-bottom:6px;">🏠</div>
+        <div class="rtl-card-price">1,200 دينار/شهر</div>
+        <div class="rtl-card-title">فيلا مع حديقة — صفاقس</div>
+        <div class="rtl-badge">✓ موثّق</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 4. MOBILE SCREENS ===== -->
+  <div class="section-title" style="margin-top:36px;">04 — Mobile App — Écrans principaux</div>
+  <div class="designs-grid triple">
+    
+    <!-- Home Screen -->
+    <div>
+      <div class="design-label">Accueil — FR</div>
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-notch-dot"></div><div style="width:40px;height:4px;background:#333;border-radius:2px;"></div></div>
+          <div class="phone-screen">
+            <div class="mobile-status">
+              <span>9:41</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="mobile-home-header">
+              <div class="mobile-greeting">
+                Bonjour, Ahmed 👋
+                <strong>Que cherchez-vous ?</strong>
+              </div>
+              <div class="mobile-search">
+                <span>🔍</span>
+                Ville, quartier, service...
+              </div>
+            </div>
+            <div class="mobile-categories">
+              <div class="mobile-cat">
+                <div class="mobile-cat-icon blue">🏢</div>
+                <div class="mobile-cat-label">Appart.</div>
+              </div>
+              <div class="mobile-cat">
+                <div class="mobile-cat-icon green">🏠</div>
+                <div class="mobile-cat-label">Maison</div>
+              </div>
+              <div class="mobile-cat">
+                <div class="mobile-cat-icon orange">🔧</div>
+                <div class="mobile-cat-label">Artisans</div>
+              </div>
+              <div class="mobile-cat">
+                <div class="mobile-cat-icon purple">🏗️</div>
+                <div class="mobile-cat-label">Terrain</div>
+              </div>
+            </div>
+            <div class="mobile-section-header">
+              <span class="mobile-section-title">Annonces récentes</span>
+              <span class="mobile-see-all">Voir tout →</span>
+            </div>
+            <div class="mobile-cards">
+              <div class="mobile-card">
+                <div class="mobile-card-img c1">
+                  <span style="background:rgba(0,0,0,0.4);color:#fff;padding:2px 6px;border-radius:4px;">VENTE</span>
+                  <span style="background:var(--success);color:#fff;padding:2px 6px;border-radius:4px;">✓</span>
+                </div>
+                <div class="mobile-card-body">
+                  <div class="mobile-card-price">185k DT</div>
+                  <div class="mobile-card-title">S+2 — Lac 2, Tunis</div>
+                </div>
+              </div>
+              <div class="mobile-card">
+                <div class="mobile-card-img c2">
+                  <span style="background:rgba(0,0,0,0.4);color:#fff;padding:2px 6px;border-radius:4px;">LOUER</span>
+                  <span style="background:var(--success);color:#fff;padding:2px 6px;border-radius:4px;">✓</span>
+                </div>
+                <div class="mobile-card-body">
+                  <div class="mobile-card-price">1,200 DT</div>
+                  <div class="mobile-card-title">Villa — Sfax Nord</div>
+                </div>
+              </div>
+              <div class="mobile-card">
+                <div class="mobile-card-img c3">
+                  <span style="background:rgba(0,0,0,0.4);color:#fff;padding:2px 6px;border-radius:4px;">LOUER</span>
+                </div>
+                <div class="mobile-card-body">
+                  <div class="mobile-card-price">800 DT</div>
+                  <div class="mobile-card-title">S+1 — Sousse</div>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-section-header" style="padding-top:8px;">
+              <span class="mobile-section-title">Top artisans 🔧</span>
+              <span class="mobile-see-all">Voir tout →</span>
+            </div>
+            <div style="padding:0 16px 8px;display:flex;flex-direction:column;gap:6px;background:#fff;">
+              <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:10px;padding:8px;">
+                <div style="width:36px;height:36px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;">🔧</div>
+                <div style="flex:1;">
+                  <div style="font-size:12px;font-weight:600;">Ahmed Ben Ali</div>
+                  <div style="font-size:10px;color:var(--muted);">Plombier · Tunis ⭐ 4.9</div>
+                </div>
+                <div style="background:var(--primary);color:#fff;font-size:10px;padding:4px 10px;border-radius:6px;">Contacter</div>
+              </div>
+            </div>
+            <div class="mobile-bottom-nav">
+              <div class="nav-item active"><div class="nav-item-icon">🏠</div>Accueil</div>
+              <div class="nav-item"><div class="nav-item-icon">🔍</div>Explorer</div>
+              <div class="nav-item"><div class="nav-item-icon">❤️</div>Favoris</div>
+              <div class="nav-item"><div class="nav-item-icon">👤</div>Profil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pro Profile Screen -->
+    <div>
+      <div class="design-label">Profil Artisan — FR</div>
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-notch-dot"></div><div style="width:40px;height:4px;background:#333;border-radius:2px;"></div></div>
+          <div class="phone-screen">
+            <div class="mobile-status" style="background:var(--primary-dark);">
+              <span>← Retour</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="pro-profile-header">
+              <div class="pro-avatar">🔧</div>
+              <div class="pro-name">Ahmed Ben Ali</div>
+              <div class="pro-category">Plombier professionnel · Tunis</div>
+              <div class="pro-verified-tag">✓ DARKOM Vérifié</div>
+            </div>
+            <div class="pro-stats-row">
+              <div class="pro-stat"><div class="pro-stat-value">4.9</div><div class="pro-stat-label">⭐ Note</div></div>
+              <div class="pro-stat"><div class="pro-stat-value">127</div><div class="pro-stat-label">Avis</div></div>
+              <div class="pro-stat"><div class="pro-stat-value">3 ans</div><div class="pro-stat-label">Expérience</div></div>
+            </div>
+            <div class="pro-services">
+              <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Services</div>
+              <span class="service-chip">Plomberie</span>
+              <span class="service-chip">Sanitaires</span>
+              <span class="service-chip">Chauffe-eau</span>
+              <span class="service-chip">Urgences 24h</span>
+              <div style="margin-top:10px;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Avis récents</div>
+              <div class="review-item">
+                <div class="review-header">
+                  <div class="reviewer-name">Fatma K.</div>
+                  <div class="star-rating">★★★★★</div>
+                </div>
+                <div class="review-text">"Intervention rapide, travail soigné et prix honnête. Je recommande vivement !"</div>
+              </div>
+              <div class="review-item">
+                <div class="review-header">
+                  <div class="reviewer-name">Mohamed S.</div>
+                  <div class="star-rating">★★★★★</div>
+                </div>
+                <div class="review-text">"Très professionnel, ponctuel et efficace. Super artisan !"</div>
+              </div>
+            </div>
+            <div style="padding:12px 16px;background:#fff;display:flex;gap:8px;">
+              <button style="flex:1;background:var(--primary);color:#fff;border:none;padding:11px;border-radius:10px;font-size:12px;font-weight:600;font-family:'Sora',sans-serif;">📱 Appeler</button>
+              <button style="flex:1;background:#25D366;color:#fff;border:none;padding:11px;border-radius:10px;font-size:12px;font-weight:600;font-family:'Sora',sans-serif;">💬 WhatsApp</button>
+            </div>
+            <div class="mobile-bottom-nav">
+              <div class="nav-item"><div class="nav-item-icon">🏠</div>Accueil</div>
+              <div class="nav-item active"><div class="nav-item-icon">🔍</div>Explorer</div>
+              <div class="nav-item"><div class="nav-item-icon">❤️</div>Favoris</div>
+              <div class="nav-item"><div class="nav-item-icon">👤</div>Profil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arabic Mobile Screen -->
+    <div>
+      <div class="design-label">الرئيسية — Arabic RTL</div>
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-notch-dot"></div><div style="width:40px;height:4px;background:#333;border-radius:2px;"></div></div>
+          <div class="phone-screen" dir="rtl" style="font-family:'Noto Naskh Arabic',serif;">
+            <div class="mobile-status" style="direction:ltr;">
+              <span>9:41</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="mobile-home-header">
+              <div class="mobile-greeting" style="font-family:'Noto Naskh Arabic',serif;direction:rtl;">
+                مرحباً، أحمد 👋
+                <strong>ماذا تبحث عن؟</strong>
+              </div>
+              <div class="mobile-search" style="direction:rtl;font-family:'Noto Naskh Arabic',serif;">
+                <span>🔍</span>
+                المدينة، الحي، الخدمة...
+              </div>
+            </div>
+            <div class="mobile-categories" style="flex-direction:row-reverse;">
+              <div class="mobile-cat">
+                <div class="mobile-cat-icon blue">🏢</div>
+                <div class="mobile-cat-label" style="font-family:'Noto Naskh Arabic',serif;">شقق</div>
+              </div>
+              <div class="mobile-cat">
+                <div class="mobile-cat-icon green">🏠</div>
+                <div class="mobile-cat-label" style="font-family:'Noto Naskh Arabic',serif;">منازل</div>
+              </div>
+              <div class="mobile-cat">
+                <div class="mobile-cat-icon orange">🔧</div>
+                <div class="mobile-cat-label" style="font-family:'Noto Naskh Arabic',serif;">حرفيون</div>
+              </div>
+              <div class="mobile-cat">
+                <div class="mobile-cat-icon purple">🏗️</div>
+                <div class="mobile-cat-label" style="font-family:'Noto Naskh Arabic',serif;">أراضي</div>
+              </div>
+            </div>
+            <div class="mobile-section-header" style="flex-direction:row-reverse;direction:rtl;">
+              <span class="mobile-section-title" style="font-family:'Noto Naskh Arabic',serif;">أحدث الإعلانات</span>
+              <span class="mobile-see-all" style="font-family:'Noto Naskh Arabic',serif;">← عرض الكل</span>
+            </div>
+            <div class="mobile-cards" style="flex-direction:row-reverse;">
+              <div class="mobile-card">
+                <div class="mobile-card-img c1">
+                  <span style="background:rgba(0,0,0,0.4);color:#fff;padding:2px 6px;border-radius:4px;font-family:'Noto Naskh Arabic',serif;font-size:9px;">بيع</span>
+                  <span style="background:var(--success);color:#fff;padding:2px 6px;border-radius:4px;font-size:9px;">✓</span>
+                </div>
+                <div class="mobile-card-body" style="direction:rtl;">
+                  <div class="mobile-card-price" style="font-family:'Sora',sans-serif;">185k DT</div>
+                  <div class="mobile-card-title" style="font-family:'Noto Naskh Arabic',serif;">ش+2 — البحيرة، تونس</div>
+                </div>
+              </div>
+              <div class="mobile-card">
+                <div class="mobile-card-img c2">
+                  <span style="background:rgba(0,0,0,0.4);color:#fff;padding:2px 6px;border-radius:4px;font-family:'Noto Naskh Arabic',serif;font-size:9px;">إيجار</span>
+                  <span style="background:var(--success);color:#fff;padding:2px 6px;border-radius:4px;font-size:9px;">✓</span>
+                </div>
+                <div class="mobile-card-body" style="direction:rtl;">
+                  <div class="mobile-card-price" style="font-family:'Sora',sans-serif;">1,200 DT</div>
+                  <div class="mobile-card-title" style="font-family:'Noto Naskh Arabic',serif;">فيلا — صفاقس</div>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-section-header" style="flex-direction:row-reverse;direction:rtl;padding-top:8px;">
+              <span class="mobile-section-title" style="font-family:'Noto Naskh Arabic',serif;">أفضل الحرفيين 🔧</span>
+              <span class="mobile-see-all" style="font-family:'Noto Naskh Arabic',serif;">← عرض الكل</span>
+            </div>
+            <div style="padding:0 16px 8px;display:flex;flex-direction:column;gap:6px;background:#fff;">
+              <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:10px;padding:8px;flex-direction:row-reverse;">
+                <div style="width:36px;height:36px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;">🔧</div>
+                <div style="flex:1;text-align:right;">
+                  <div style="font-size:12px;font-weight:600;font-family:'Noto Naskh Arabic',serif;">أحمد بن علي</div>
+                  <div style="font-size:10px;color:var(--muted);font-family:'Noto Naskh Arabic',serif;">سبّاك · تونس ⭐ 4.9</div>
+                </div>
+                <div style="background:var(--primary);color:#fff;font-size:10px;padding:4px 10px;border-radius:6px;font-family:'Noto Naskh Arabic',serif;">تواصل</div>
+              </div>
+            </div>
+            <div class="mobile-bottom-nav">
+              <div class="nav-item"><div class="nav-item-icon">👤</div><span style="font-family:'Noto Naskh Arabic',serif;">حسابي</span></div>
+              <div class="nav-item"><div class="nav-item-icon">❤️</div><span style="font-family:'Noto Naskh Arabic',serif;">المفضلة</span></div>
+              <div class="nav-item"><div class="nav-item-icon">🔍</div><span style="font-family:'Noto Naskh Arabic',serif;">استكشاف</span></div>
+              <div class="nav-item active"><div class="nav-item-icon">🏠</div><span style="font-family:'Noto Naskh Arabic',serif;">الرئيسية</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 5. SUBSCRIPTION (Mobile) ===== -->
+  <div class="section-title" style="margin-top:8px;">05 — Mobile — Page Abonnements Pros</div>
+  <div style="display:flex;justify-content:center;">
+    <div>
+      <div class="design-label">Plans Tarifaires</div>
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <div class="phone-notch"><div class="phone-notch-dot"></div><div style="width:40px;height:4px;background:#333;border-radius:2px;"></div></div>
+          <div class="phone-screen">
+            <div class="mobile-status" style="background:var(--primary-dark);">
+              <span>← Retour</span>
+              <span>📶 🔋</span>
+            </div>
+            <div class="pricing-header">
+              <div class="pricing-title">Boostez votre visibilité</div>
+              <div class="pricing-subtitle">Choisissez le plan adapté à votre activité</div>
+            </div>
+            <div class="pricing-cards">
+              <div class="pricing-card">
+                <div class="pricing-plan-name">🥉 Starter</div>
+                <div class="pricing-plan-price">0 DT<span>/mois</span></div>
+                <div class="pricing-features">
+                  <div class="pricing-feature"><span class="check">✓</span> 1 annonce active</div>
+                  <div class="pricing-feature"><span class="check">✓</span> Profil basique</div>
+                  <div class="pricing-feature" style="color:#ccc;"><span>✗</span> Badge vérifié</div>
+                </div>
+                <button class="pricing-cta outline">Continuer gratuitement</button>
+              </div>
+              <div class="pricing-card featured">
+                <div class="popular-badge">⭐ Le plus populaire</div>
+                <div class="pricing-plan-name">🥈 Pro</div>
+                <div class="pricing-plan-price">49 DT<span>/mois</span></div>
+                <div class="pricing-features">
+                  <div class="pricing-feature"><span class="check">✓</span> 10 annonces actives</div>
+                  <div class="pricing-feature"><span class="check">✓</span> Badge ✓ DARKOM Vérifié</div>
+                  <div class="pricing-feature"><span class="check">✓</span> Avis clients activés</div>
+                  <div class="pricing-feature"><span class="check">✓</span> Stats & visites</div>
+                </div>
+                <button class="pricing-cta primary">Commencer — 49 DT/mois</button>
+              </div>
+              <div class="pricing-card">
+                <div class="pricing-plan-name">🥇 Premium</div>
+                <div class="pricing-plan-price">99 DT<span>/mois</span></div>
+                <div class="pricing-features">
+                  <div class="pricing-feature"><span class="check">✓</span> Annonces illimitées</div>
+                  <div class="pricing-feature"><span class="check">✓</span> Mise en avant #1</div>
+                  <div class="pricing-feature"><span class="check">✓</span> Visite virtuelle 360°</div>
+                  <div class="pricing-feature"><span class="check">✓</span> Support prioritaire</div>
+                </div>
+                <button class="pricing-cta outline">Choisir Premium</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer note -->
+  <div style="text-align:center;padding:32px 0 24px;color:var(--muted);font-size:12px;">
+    DARKOM Design System v1.0 — Codly/GS Code — 2026<br>
+    <span style="color:var(--primary-light);font-weight:600;">darkom.com</span> · Stack : Next.js 15 · Expo · Supabase · Sora + Noto Naskh Arabic
+  </div>
+
+</div>
+</body>
+</html>

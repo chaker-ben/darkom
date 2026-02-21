@@ -1,0 +1,79 @@
+{
+  "app": {
+    "name": "DARKOM",
+    "tagline": "Trouvez votre maison idéale en Tunisie",
+    "description": "La seule plateforme qui combine immobilier vérifié et artisans de confiance"
+  },
+  "nav": {
+    "home": "Accueil",
+    "buy": "Acheter",
+    "rent": "Louer",
+    "pros": "Artisans",
+    "agencies": "Agences",
+    "login": "Connexion",
+    "register": "Inscription",
+    "publish": "Publier une annonce",
+    "favorites": "Favoris",
+    "profile": "Profil"
+  },
+  "search": {
+    "placeholder": "Ville, quartier, gouvernorat...",
+    "button": "Rechercher",
+    "allTypes": "Tout type",
+    "buy": "Acheter",
+    "rent": "Louer"
+  },
+  "listing": {
+    "forSale": "À vendre",
+    "forRent": "À louer",
+    "verified": "Vérifié",
+    "featured": "Premium",
+    "rooms": "{count} ch",
+    "bathrooms": "{count} sdb",
+    "surface": "{value} m²",
+    "perMonth": "/mois",
+    "recent": "Annonces récentes",
+    "seeAll": "Voir tout"
+  },
+  "categories": {
+    "apartment": "Appartement",
+    "house": "Maison",
+    "land": "Terrain",
+    "commercial": "Commerce",
+    "office": "Bureau",
+    "all": "Tous"
+  },
+  "pro": {
+    "title": "Artisans",
+    "verified": "DARKOM Vérifié",
+    "reviews": "{count} avis",
+    "contact": "Contacter",
+    "call": "Appeler",
+    "whatsapp": "WhatsApp"
+  },
+  "stats": {
+    "listings": "Annonces vérifiées",
+    "pros": "Artisans certifiés",
+    "governorates": "Gouvernorats"
+  },
+  "hero": {
+    "eyebrow": "Annonces vérifiées • Artisans certifiés",
+    "title": "Trouvez votre {highlight} en Tunisie",
+    "titleHighlight": "maison idéale",
+    "subtitle": "La seule plateforme qui combine immobilier vérifié et artisans de confiance — partout en Tunisie"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "noResults": "Aucun résultat",
+    "back": "Retour",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "currency": "DT"
+  },
+  "metadata": {
+    "title": "DARKOM — Immobilier & Services en Tunisie",
+    "description": "Trouvez votre maison idéale, louez un appartement ou contactez un artisan de confiance. Annonces vérifiées partout en Tunisie."
+  }
+}

@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* ===== FONTS ===== */
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/sora/v12/xMQbuFFYT72X5wkB_18qmnndmSdSnk-DKQRDA.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Noto Naskh Arabic';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/notonaskharabic/v33/RrQ5bpV-9Dd1b1OAGA6M9PkyDuVBePeKNaxcsss0Y7bwvc5krK0z9_Mnuw.woff2') format('woff2');
+}
+
+/* ===== CSS CUSTOM PROPERTIES ===== */
+@theme {
+  /* Primary */
+  --color-primary-50: #EEF5FF;
+  --color-primary-100: #D9E8FF;
+  --color-primary-200: #B3D1FF;
+  --color-primary-300: #8DBAFF;
+  --color-primary-400: #5B9BD5;
+  --color-primary-500: #2E75B6;
+  --color-primary-600: #1E5C96;
+  --color-primary-700: #1B4F8A;
+  --color-primary-800: #153D6B;
+  --color-primary-900: #0F2D52;
+  --color-primary-950: #0A1F3A;
+
+  /* Accent */
+  --color-accent-50: #FFFBEB;
+  --color-accent-100: #FFF3C4;
+  --color-accent-200: #FCE588;
+  --color-accent-300: #FBBF24;
+  --color-accent-400: #F5A623;
+  --color-accent-500: #E8920E;
+  --color-accent-600: #CC7A00;
+  --color-accent-700: #A35F00;
+  --color-accent-800: #7A4700;
+  --color-accent-900: #523000;
+
+  /* Success */
+  --color-success-50: #F0FDF4;
+  --color-success-100: #DCFCE7;
+  --color-success-500: #16A34A;
+  --color-success-600: #15803D;
+  --color-success-700: #166534;
+
+  /* Warning */
+  --color-warning-50: #FFFBEB;
+  --color-warning-100: #FEF3C7;
+  --color-warning-500: #D97706;
+  --color-warning-600: #B45309;
+
+  /* Error */
+  --color-error-50: #FEF2F2;
+  --color-error-100: #FEE2E2;
+  --color-error-500: #DC2626;
+  --color-error-600: #B91C1C;
+
+  /* Fonts */
+  --font-sans: 'Sora', system-ui, sans-serif;
+  --font-arabic: 'Noto Naskh Arabic', serif;
+
+  /* Shadows */
+  --shadow-card: 0 2px 12px rgba(27, 79, 138, 0.06);
+  --shadow-md: 0 4px 24px rgba(27, 79, 138, 0.10);
+  --shadow-lg: 0 12px 48px rgba(27, 79, 138, 0.16);
+
+  /* Radius */
+  --radius-card: 16px;
+  --radius-button: 12px;
+  --radius-input: 10px;
+  --radius-badge: 20px;
+}
+
+/* ===== BASE STYLES ===== */
+@layer base {
+  :root {
+    --background: #F0F4F9;
+    --foreground: #1A1A2E;
+    --muted: #6B7A99;
+    --border: #E2E8F0;
+    --card: #FFFFFF;
+  }
+
+  .dark {
+    --background: #0A1F3A;
+    --foreground: #F0F4F9;
+    --muted: #94A3B8;
+    --border: #1E293B;
+    --card: #153D6B;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  /* RTL: Arabic font when dir=rtl */
+  [dir="rtl"] body {
+    font-family: var(--font-arabic);
+  }
+}
+
+/* ===== UTILITIES ===== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

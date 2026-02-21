@@ -1,0 +1,33 @@
+{
+  "name": "darkom",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "eslint apps/web/src packages/*/src --config eslint.config.mjs",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test",
+    "test:coverage": "turbo test:coverage",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\"",
+    "clean": "turbo clean && rm -rf node_modules",
+    "db:push": "turbo db:push --filter=@darkom/db",
+    "db:migrate": "turbo db:migrate --filter=@darkom/db",
+    "db:generate": "turbo db:generate --filter=@darkom/db",
+    "db:studio": "turbo db:studio --filter=@darkom/db"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.3",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^9.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "prettier": "^3.4.0",
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.18"
+  }
+}

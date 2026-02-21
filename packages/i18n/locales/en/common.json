@@ -1,0 +1,91 @@
+{
+  "app": {
+    "name": "DARKOM",
+    "tagline": "Find your perfect home in Tunisia",
+    "description": "The only platform combining verified real estate and trusted craftsmen"
+  },
+  "nav": {
+    "home": "Home",
+    "buy": "Buy",
+    "rent": "Rent",
+    "pros": "Craftsmen",
+    "agencies": "Agencies",
+    "login": "Login",
+    "register": "Register",
+    "publish": "Post a listing",
+    "favorites": "Favorites",
+    "profile": "Profile",
+    "explore": "Explore"
+  },
+  "search": {
+    "placeholder": "City, neighborhood, governorate...",
+    "button": "Search",
+    "allTypes": "All types",
+    "buy": "Buy",
+    "rent": "Rent"
+  },
+  "listing": {
+    "forSale": "For sale",
+    "forRent": "For rent",
+    "verified": "Verified",
+    "featured": "Featured",
+    "rooms": "{count} bd",
+    "bathrooms": "{count} ba",
+    "surface": "{value} m\u00b2",
+    "perMonth": "/month",
+    "recent": "Recent listings",
+    "seeAll": "See all"
+  },
+  "categories": {
+    "apartment": "Apartment",
+    "house": "House",
+    "land": "Land",
+    "commercial": "Commercial",
+    "office": "Office",
+    "all": "All"
+  },
+  "pro": {
+    "title": "Craftsmen",
+    "verified": "DARKOM Verified",
+    "reviews": "{count} reviews",
+    "contact": "Contact",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "services": "Services",
+    "recentReviews": "Recent reviews"
+  },
+  "stats": {
+    "listings": "Verified listings",
+    "pros": "Certified craftsmen",
+    "governorates": "Governorates"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "noResults": "No results",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "seeMore": "See more",
+    "currency": "DT"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "phone": "Phone",
+    "forgotPassword": "Forgot password?",
+    "orContinueWith": "Or continue with",
+    "google": "Google"
+  },
+  "hero": {
+    "eyebrow": "Verified listings \u2022 Certified craftsmen",
+    "title": "Find your {highlight} in Tunisia",
+    "titleHighlight": "perfect home",
+    "subtitle": "The only platform combining verified real estate and trusted craftsmen \u2014 across Tunisia"
+  }
+}

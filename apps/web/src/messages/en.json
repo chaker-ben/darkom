@@ -1,0 +1,79 @@
+{
+  "app": {
+    "name": "DARKOM",
+    "tagline": "Find your perfect home in Tunisia",
+    "description": "The only platform combining verified real estate and trusted craftsmen"
+  },
+  "nav": {
+    "home": "Home",
+    "buy": "Buy",
+    "rent": "Rent",
+    "pros": "Craftsmen",
+    "agencies": "Agencies",
+    "login": "Login",
+    "register": "Register",
+    "publish": "Post a listing",
+    "favorites": "Favorites",
+    "profile": "Profile"
+  },
+  "search": {
+    "placeholder": "City, neighborhood, governorate...",
+    "button": "Search",
+    "allTypes": "All types",
+    "buy": "Buy",
+    "rent": "Rent"
+  },
+  "listing": {
+    "forSale": "For sale",
+    "forRent": "For rent",
+    "verified": "Verified",
+    "featured": "Featured",
+    "rooms": "{count} bd",
+    "bathrooms": "{count} ba",
+    "surface": "{value} m²",
+    "perMonth": "/month",
+    "recent": "Recent listings",
+    "seeAll": "See all"
+  },
+  "categories": {
+    "apartment": "Apartment",
+    "house": "House",
+    "land": "Land",
+    "commercial": "Commercial",
+    "office": "Office",
+    "all": "All"
+  },
+  "pro": {
+    "title": "Craftsmen",
+    "verified": "DARKOM Verified",
+    "reviews": "{count} reviews",
+    "contact": "Contact",
+    "call": "Call",
+    "whatsapp": "WhatsApp"
+  },
+  "stats": {
+    "listings": "Verified listings",
+    "pros": "Certified craftsmen",
+    "governorates": "Governorates"
+  },
+  "hero": {
+    "eyebrow": "Verified listings • Certified craftsmen",
+    "title": "Find your {highlight} in Tunisia",
+    "titleHighlight": "perfect home",
+    "subtitle": "The only platform combining verified real estate and trusted craftsmen — across Tunisia"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "noResults": "No results",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "currency": "DT"
+  },
+  "metadata": {
+    "title": "DARKOM — Real Estate & Services in Tunisia",
+    "description": "Find your perfect home, rent an apartment or contact a trusted craftsman. Verified listings across Tunisia."
+  }
+}

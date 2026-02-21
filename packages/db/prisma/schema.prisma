@@ -1,0 +1,230 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ===== USERS =====
+model Profile {
+  id            String   @id @default(cuid())
+  clerkId       String   @unique @map("clerk_id")
+  role          Role     @default(USER)
+  fullName      String?  @map("full_name")
+  phone         String?
+  avatarUrl     String?  @map("avatar_url")
+  preferredLang Lang     @default(FR) @map("preferred_lang")
+  verified      Boolean  @default(false)
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  listings     Listing[]
+  pro          Pro?
+  reviews      Review[]    @relation("AuthorReviews")
+  favorites    Favorite[]
+  sentMessages Message[]   @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+
+  @@map("profiles")
+}
+
+enum Role {
+  USER  @map("user")
+  PRO   @map("pro")
+  ADMIN @map("admin")
+}
+
+enum Lang {
+  FR @map("fr")
+  AR @map("ar")
+  EN @map("en")
+}
+
+// ===== ANNONCES IMMOBILIERES =====
+model Listing {
+  id          String          @id @default(cuid())
+  userId      String          @map("user_id")
+  type        ListingType
+  category    ListingCategory
+
+  titleFr     String          @map("title_fr")
+  titleAr     String?         @map("title_ar")
+  titleEn     String?         @map("title_en")
+  descriptionFr String?       @map("description_fr")
+  descriptionAr String?       @map("description_ar")
+  descriptionEn String?       @map("description_en")
+
+  price         Decimal
+  priceCurrency String        @default("TND") @map("price_currency")
+  surface       Decimal?
+  rooms         Int?
+  bathrooms     Int?
+  floor         Int?
+
+  governorate   String
+  city          String
+  address       String?
+  lat           Decimal?
+  lng           Decimal?
+
+  images        String[]      @default([])
+  videoUrl      String?       @map("video_url")
+  tour360Url    String?       @map("tour_360_url")
+
+  status        ListingStatus @default(PENDING)
+  featured      Boolean       @default(false)
+  viewsCount    Int           @default(0) @map("views_count")
+
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  user          Profile       @relation(fields: [userId], references: [id])
+  favorites     Favorite[]
+  messages      Message[]
+
+  @@index([status, createdAt(sort: Desc)])
+  @@index([governorate, city])
+  @@index([type, category])
+  @@index([userId])
+  @@map("listings")
+}
+
+enum ListingType {
+  SALE @map("sale")
+  RENT @map("rent")
+}
+
+enum ListingCategory {
+  APARTMENT  @map("apartment")
+  HOUSE      @map("house")
+  LAND       @map("land")
+  COMMERCIAL @map("commercial")
+  OFFICE     @map("office")
+}
+
+enum ListingStatus {
+  DRAFT    @map("draft")
+  PENDING  @map("pending")
+  VERIFIED @map("verified")
+  REJECTED @map("rejected")
+  SOLD     @map("sold")
+}
+
+// ===== PROFESSIONNELS =====
+model Pro {
+  id              String   @id @default(cuid())
+  userId          String   @unique @map("user_id")
+  businessNameFr  String   @map("business_name_fr")
+  businessNameAr  String?  @map("business_name_ar")
+  category        String
+  bioFr           String?  @map("bio_fr")
+  bioAr           String?  @map("bio_ar")
+  phone           String
+  whatsapp        String?
+
+  governorates    String[] @default([])
+
+  plan            ProPlan  @default(FREE)
+  planExpiresAt   DateTime? @map("plan_expires_at")
+
+  rating          Decimal  @default(0) @db.Decimal(3, 2)
+  reviewsCount    Int      @default(0) @map("reviews_count")
+  verified        Boolean  @default(false)
+  logoUrl         String?  @map("logo_url")
+  coverUrl        String?  @map("cover_url")
+
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  user            Profile  @relation(fields: [userId], references: [id])
+  reviews         Review[]
+  subscriptions   Subscription[]
+
+  @@index([category])
+  @@index([verified, rating(sort: Desc)])
+  @@map("pros")
+}
+
+enum ProPlan {
+  FREE    @map("free")
+  PRO     @map("pro")
+  PREMIUM @map("premium")
+}
+
+// ===== AVIS =====
+model Review {
+  id        String   @id @default(cuid())
+  authorId  String   @map("author_id")
+  proId     String   @map("pro_id")
+  rating    Int
+  comment   String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  author    Profile  @relation("AuthorReviews", fields: [authorId], references: [id])
+  pro       Pro      @relation(fields: [proId], references: [id])
+
+  @@unique([authorId, proId])
+  @@map("reviews")
+}
+
+// ===== FAVORIS =====
+model Favorite {
+  userId    String   @map("user_id")
+  listingId String   @map("listing_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user      Profile  @relation(fields: [userId], references: [id])
+  listing   Listing  @relation(fields: [listingId], references: [id])
+
+  @@id([userId, listingId])
+  @@map("favorites")
+}
+
+// ===== MESSAGES =====
+model Message {
+  id        String   @id @default(cuid())
+  fromId    String   @map("from_id")
+  toId      String   @map("to_id")
+  listingId String?  @map("listing_id")
+  content   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  from      Profile  @relation("SentMessages", fields: [fromId], references: [id])
+  to        Profile  @relation("ReceivedMessages", fields: [toId], references: [id])
+  listing   Listing? @relation(fields: [listingId], references: [id])
+
+  @@index([toId, read])
+  @@map("messages")
+}
+
+// ===== ABONNEMENTS =====
+model Subscription {
+  id               String             @id @default(cuid())
+  proId            String             @map("pro_id")
+  plan             SubscriptionPlan
+  amount           Decimal
+  currency         String             @default("TND")
+  status           SubscriptionStatus
+  konnectPaymentId String?            @map("konnect_payment_id")
+  startsAt         DateTime           @default(now()) @map("starts_at")
+  expiresAt        DateTime?          @map("expires_at")
+
+  pro              Pro                @relation(fields: [proId], references: [id])
+
+  @@index([proId, status])
+  @@map("subscriptions")
+}
+
+enum SubscriptionPlan {
+  PRO     @map("pro")
+  PREMIUM @map("premium")
+}
+
+enum SubscriptionStatus {
+  ACTIVE    @map("active")
+  CANCELLED @map("cancelled")
+  EXPIRED   @map("expired")
+}

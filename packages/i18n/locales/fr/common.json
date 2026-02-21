@@ -1,0 +1,91 @@
+{
+  "app": {
+    "name": "DARKOM",
+    "tagline": "Trouvez votre maison id\u00e9ale en Tunisie",
+    "description": "La seule plateforme qui combine immobilier v\u00e9rifi\u00e9 et artisans de confiance"
+  },
+  "nav": {
+    "home": "Accueil",
+    "buy": "Acheter",
+    "rent": "Louer",
+    "pros": "Artisans",
+    "agencies": "Agences",
+    "login": "Connexion",
+    "register": "Inscription",
+    "publish": "Publier une annonce",
+    "favorites": "Favoris",
+    "profile": "Profil",
+    "explore": "Explorer"
+  },
+  "search": {
+    "placeholder": "Ville, quartier, gouvernorat...",
+    "button": "Rechercher",
+    "allTypes": "Tout type",
+    "buy": "Acheter",
+    "rent": "Louer"
+  },
+  "listing": {
+    "forSale": "\u00c0 vendre",
+    "forRent": "\u00c0 louer",
+    "verified": "V\u00e9rifi\u00e9",
+    "featured": "Premium",
+    "rooms": "{count} ch",
+    "bathrooms": "{count} sdb",
+    "surface": "{value} m\u00b2",
+    "perMonth": "/mois",
+    "recent": "Annonces r\u00e9centes",
+    "seeAll": "Voir tout"
+  },
+  "categories": {
+    "apartment": "Appartement",
+    "house": "Maison",
+    "land": "Terrain",
+    "commercial": "Commerce",
+    "office": "Bureau",
+    "all": "Tous"
+  },
+  "pro": {
+    "title": "Artisans",
+    "verified": "DARKOM V\u00e9rifi\u00e9",
+    "reviews": "{count} avis",
+    "contact": "Contacter",
+    "call": "Appeler",
+    "whatsapp": "WhatsApp",
+    "services": "Services",
+    "recentReviews": "Avis r\u00e9cents"
+  },
+  "stats": {
+    "listings": "Annonces v\u00e9rifi\u00e9es",
+    "pros": "Artisans certifi\u00e9s",
+    "governorates": "Gouvernorats"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "R\u00e9essayer",
+    "noResults": "Aucun r\u00e9sultat",
+    "back": "Retour",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "seeMore": "Voir plus",
+    "currency": "DT"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "Inscription",
+    "email": "Email",
+    "password": "Mot de passe",
+    "phone": "T\u00e9l\u00e9phone",
+    "forgotPassword": "Mot de passe oubli\u00e9 ?",
+    "orContinueWith": "Ou continuer avec",
+    "google": "Google"
+  },
+  "hero": {
+    "eyebrow": "Annonces v\u00e9rifi\u00e9es \u2022 Artisans certifi\u00e9s",
+    "title": "Trouvez votre {highlight} en Tunisie",
+    "titleHighlight": "maison id\u00e9ale",
+    "subtitle": "La seule plateforme qui combine immobilier v\u00e9rifi\u00e9 et artisans de confiance \u2014 partout en Tunisie"
+  }
+}
