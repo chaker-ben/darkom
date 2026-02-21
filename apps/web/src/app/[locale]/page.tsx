@@ -1,7 +1,22 @@
+'use client';
+
+import { useState } from 'react';
+
+import { Badge, Button, Card, CardBody, FilterTabs, Skeleton } from '@darkom/ui';
 import { useTranslations } from 'next-intl';
 
 export default function HomePage() {
   const t = useTranslations();
+  const [category, setCategory] = useState('all');
+
+  const categories = [
+    { value: 'all', label: t('categories.all') },
+    { value: 'apartment', label: t('categories.apartment') },
+    { value: 'house', label: t('categories.house') },
+    { value: 'land', label: t('categories.land') },
+    { value: 'commercial', label: t('categories.commercial') },
+    { value: 'office', label: t('categories.office') },
+  ];
 
   return (
     <main className="min-h-screen">
@@ -12,9 +27,9 @@ export default function HomePage() {
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           {/* Eyebrow */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent-400/40 bg-accent-400/20 px-4 py-1.5 text-sm font-semibold text-accent-300">
+          <Badge variant="overlay" size="md" className="mb-6 border border-accent-400/40 bg-accent-400/20 text-accent-300">
             {t('hero.eyebrow')}
-          </div>
+          </Badge>
 
           {/* Title */}
           <h1 className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -37,9 +52,9 @@ export default function HomePage() {
               placeholder={t('search.placeholder')}
               className="flex-1 border-none bg-transparent px-4 py-3 text-sm text-neutral-900 outline-none placeholder:text-neutral-400"
             />
-            <button className="flex items-center gap-2 rounded-xl bg-primary-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-800">
+            <Button size="md" className="rounded-xl px-6">
               {t('search.button')}
-            </button>
+            </Button>
           </div>
 
           {/* Stats */}
@@ -62,46 +77,27 @@ export default function HomePage() {
 
       {/* Categories */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex gap-3 overflow-x-auto pb-2">
-          {['all', 'apartment', 'house', 'land', 'commercial', 'office'].map(
-            (category, i) => (
-              <button
-                key={category}
-                className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${
-                  i === 0
-                    ? 'bg-primary-700 text-white'
-                    : 'border border-neutral-200 bg-white text-neutral-500 hover:border-primary-300 hover:text-primary-700'
-                }`}
-              >
-                {t(`categories.${category}`)}
-              </button>
-            ),
-          )}
-        </div>
+        <FilterTabs items={categories} value={category} onValueChange={setCategory} />
       </section>
 
       {/* Placeholder for listings grid */}
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-xl font-bold">{t('listing.recent')}</h2>
-          <button className="text-sm font-medium text-primary-500 hover:text-primary-700">
+          <Button variant="ghost" size="sm">
             {t('listing.seeAll')}
-          </button>
+          </Button>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Skeleton placeholder cards */}
           {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="overflow-hidden rounded-2xl bg-white shadow-card"
-            >
-              <div className="h-48 animate-pulse bg-neutral-100" />
-              <div className="p-4">
-                <div className="mb-2 h-5 w-24 animate-pulse rounded bg-neutral-100" />
-                <div className="mb-1 h-4 w-full animate-pulse rounded bg-neutral-100" />
-                <div className="h-3 w-2/3 animate-pulse rounded bg-neutral-100" />
-              </div>
-            </div>
+            <Card key={i}>
+              <Skeleton className="h-48 w-full rounded-none" />
+              <CardBody>
+                <Skeleton className="mb-2 h-5 w-24" />
+                <Skeleton className="mb-1 h-4 w-full" />
+                <Skeleton className="h-3 w-2/3" />
+              </CardBody>
+            </Card>
           ))}
         </div>
       </section>
