@@ -1,3 +1,4 @@
+/* eslint-disable import/order -- vi.hoisted() + vi.mock() must precede module imports */
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const { mockProfileFindUnique, mockListingUpdate } = vi.hoisted(() => ({

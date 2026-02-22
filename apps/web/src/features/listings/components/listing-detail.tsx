@@ -1,10 +1,16 @@
+'use client';
+
+import { useState } from 'react';
+
 import Image from 'next/image';
 
 import { getLocalizedField } from '@darkom/i18n';
 import { Badge, Button } from '@darkom/ui';
 import { formatPrice, formatSurface } from '@darkom/utils';
-import { BedDouble, Bath, Maximize, Building2, MapPin, Eye, Phone } from 'lucide-react';
-import { useTranslations, useLocale } from 'next-intl';
+import { Bath, BedDouble, Building2, Eye, MapPin, Maximize, Phone } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+
+import { ContactModal } from './contact-modal';
 
 import type { ListingDTO } from '../types';
 import type { Locale } from '@darkom/i18n';
@@ -16,6 +22,7 @@ type ListingDetailProps = {
 export function ListingDetail({ listing }: ListingDetailProps) {
   const t = useTranslations();
   const locale = useLocale() as Locale;
+  const [contactOpen, setContactOpen] = useState(false);
 
   const title = getLocalizedField(listing, 'title', locale);
   const description = getLocalizedField(listing, 'description', locale);
@@ -117,12 +124,19 @@ export function ListingDetail({ listing }: ListingDetailProps) {
               <p className="text-sm text-neutral-500">{listing.user.phone}</p>
             )}
           </div>
-          <Button size="sm">
+          <Button size="sm" onClick={() => setContactOpen(true)}>
             <Phone size={16} />
             {t('listing.detail.contact')}
           </Button>
         </div>
       </div>
+
+      <ContactModal
+        open={contactOpen}
+        onOpenChange={setContactOpen}
+        seller={listing.user}
+        listingId={listing.id}
+      />
     </div>
   );
 }

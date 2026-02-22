@@ -11,6 +11,7 @@ import { getDirection, isRTL } from '@/i18n/config';
 import type { Locale } from '@/i18n/config';
 import { routing } from '@/i18n/navigation';
 import { getClerkLocalization } from '@/lib/clerk-locales';
+import { generateOrganizationJsonLd } from '@/lib/structured-data';
 
 import type { Metadata } from 'next';
 
@@ -78,6 +79,12 @@ export default async function LocaleLayout({
     >
       <html lang={locale} dir={dir} suppressHydrationWarning>
         <body className={rtl ? 'font-arabic' : 'font-sans'}>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateOrganizationJsonLd()),
+            }}
+          />
           <NextIntlClientProvider messages={messages}>
             <Providers>{children}</Providers>
           </NextIntlClientProvider>

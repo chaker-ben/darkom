@@ -84,12 +84,37 @@
     "all": "All"
   },
   "pro": {
-    "title": "Craftsmen",
+    "title": "Craftsmen & Pros",
+    "directory": "Find a craftsman",
+    "subtitle": "Trusted professionals across Tunisia",
     "verified": "DARKOM Verified",
     "reviews": "{count} reviews",
+    "noReviews": "No reviews yet",
+    "rating": "{rating} / 5",
+    "allCategories": "All categories",
+    "bio": "About",
+    "serviceAreas": "Service areas",
+    "empty": "No craftsmen found",
+    "emptyAction": "Try adjusting your filters",
     "contact": "Contact",
     "call": "Call",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "writeReview": "Write a review",
+    "reviewPlaceholder": "Share your experience...",
+    "submitReview": "Submit review",
+    "reviewSubmitted": "Review submitted!",
+    "categories": {
+      "plumber": "Plumber",
+      "electrician": "Electrician",
+      "painter": "Painter",
+      "carpenter": "Carpenter",
+      "mason": "Mason",
+      "cleaner": "Cleaner",
+      "mover": "Mover",
+      "ac": "AC Technician",
+      "gardener": "Gardener",
+      "other": "Other"
+    }
   },
   "stats": {
     "listings": "Verified listings",
@@ -188,6 +213,47 @@
     "approved": "Listing approved",
     "rejected": "Listing rejected",
     "noResults": "No listings to moderate"
+  },
+  "footer": {
+    "tagline": "Your trusted real estate platform in Tunisia",
+    "realestate": "Real Estate",
+    "services": "Services",
+    "company": "Company",
+    "about": "About",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "contactLink": "Contact",
+    "copyright": "© 2024 DARKOM. All rights reserved."
+  },
+  "landing": {
+    "howItWorks": "How it works",
+    "step1Title": "Search",
+    "step1Desc": "Browse thousands of listings across Tunisia",
+    "step2Title": "Contact",
+    "step2Desc": "Connect directly with property owners",
+    "step3Title": "Move in",
+    "step3Desc": "Find your dream home with confidence",
+    "ctaTitle": "Have a property to list?",
+    "ctaButton": "Post a listing"
+  },
+  "gallery": {
+    "expand": "View fullscreen",
+    "previous": "Previous image",
+    "next": "Next image",
+    "close": "Close gallery",
+    "counter": "{current} of {total}",
+    "noImages": "No image"
+  },
+  "contact": {
+    "title": "Contact seller",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "orSendMessage": "Or send a message",
+    "messagePlaceholder": "Hi, I'm interested in this listing...",
+    "send": "Send",
+    "sent": "Message sent!",
+    "signInToContact": "Sign in to contact the seller",
+    "signIn": "Sign in"
   },
   "metadata": {
     "title": "DARKOM — Real Estate & Services in Tunisia",

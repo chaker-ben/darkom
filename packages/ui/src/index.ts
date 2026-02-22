@@ -23,3 +23,6 @@ export type { SelectProps, SelectOption } from './components/select';
 
 export { FilterTabs } from './components/filter-tabs';
 export type { FilterTabsProps, FilterTabItem } from './components/filter-tabs';
+
+export { Dialog, DialogOverlay, DialogContent, contentVariants as dialogContentVariants, DialogHeader, DialogTitle, DialogClose, DialogBody, DialogFooter } from './components/dialog';
+export type { DialogProps, DialogOverlayProps, DialogContentProps, DialogHeaderProps, DialogTitleProps, DialogCloseProps, DialogBodyProps, DialogFooterProps } from './components/dialog';

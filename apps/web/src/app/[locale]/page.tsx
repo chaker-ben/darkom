@@ -122,6 +122,42 @@ export default function HomePage() {
           </div>
         )}
       </section>
+
+      {/* How it works */}
+      <section className="border-t border-neutral-100 bg-neutral-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-2xl font-bold">{t('landing.howItWorks')}</h2>
+          <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {[
+              { icon: '\u{1F50D}', title: t('landing.step1Title'), desc: t('landing.step1Desc') },
+              { icon: '\u{1F4AC}', title: t('landing.step2Title'), desc: t('landing.step2Desc') },
+              { icon: '\u{1F3E0}', title: t('landing.step3Title'), desc: t('landing.step3Desc') },
+            ].map((step) => (
+              <div key={step.title} className="flex flex-col items-center text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-50 text-3xl">
+                  {step.icon}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
+                <p className="mt-2 text-sm text-neutral-500">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-primary-700 to-primary-900 py-16">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-white">{t('landing.ctaTitle')}</h2>
+          <div className="mt-6">
+            <Link href="/listings/new">
+              <Button variant="accent" size="lg">
+                {t('landing.ctaButton')}
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

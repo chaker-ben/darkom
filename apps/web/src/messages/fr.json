@@ -84,12 +84,37 @@
     "all": "Tous"
   },
   "pro": {
-    "title": "Artisans",
-    "verified": "DARKOM Vérifié",
+    "title": "Artisans & Pros",
+    "directory": "Trouver un artisan",
+    "subtitle": "Des professionnels de confiance \u00e0 travers la Tunisie",
+    "verified": "V\u00e9rifi\u00e9 DARKOM",
     "reviews": "{count} avis",
+    "noReviews": "Pas encore d'avis",
+    "rating": "{rating} / 5",
+    "allCategories": "Toutes cat\u00e9gories",
+    "bio": "\u00c0 propos",
+    "serviceAreas": "Zones de service",
+    "empty": "Aucun artisan trouv\u00e9",
+    "emptyAction": "Essayez d'ajuster vos filtres",
     "contact": "Contacter",
     "call": "Appeler",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "writeReview": "Laisser un avis",
+    "reviewPlaceholder": "Partagez votre exp\u00e9rience...",
+    "submitReview": "Publier l'avis",
+    "reviewSubmitted": "Avis publi\u00e9 !",
+    "categories": {
+      "plumber": "Plombier",
+      "electrician": "\u00c9lectricien",
+      "painter": "Peintre",
+      "carpenter": "Menuisier",
+      "mason": "Ma\u00e7on",
+      "cleaner": "Nettoyage",
+      "mover": "D\u00e9m\u00e9nagement",
+      "ac": "Climatisation",
+      "gardener": "Jardinier",
+      "other": "Autre"
+    }
   },
   "stats": {
     "listings": "Annonces vérifiées",
@@ -188,6 +213,47 @@
     "approved": "Annonce approuvée",
     "rejected": "Annonce rejetée",
     "noResults": "Aucune annonce à modérer"
+  },
+  "footer": {
+    "tagline": "Votre plateforme immobilière de confiance en Tunisie",
+    "realestate": "Immobilier",
+    "services": "Services",
+    "company": "Entreprise",
+    "about": "À propos",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "contactLink": "Contact",
+    "copyright": "© 2024 DARKOM. Tous droits réservés."
+  },
+  "landing": {
+    "howItWorks": "Comment ça marche",
+    "step1Title": "Recherchez",
+    "step1Desc": "Parcourez des milliers d'annonces à travers la Tunisie",
+    "step2Title": "Contactez",
+    "step2Desc": "Échangez directement avec les propriétaires",
+    "step3Title": "Emménagez",
+    "step3Desc": "Trouvez votre maison idéale en toute confiance",
+    "ctaTitle": "Vous avez un bien à proposer ?",
+    "ctaButton": "Publier une annonce"
+  },
+  "gallery": {
+    "expand": "Voir en plein écran",
+    "previous": "Image précédente",
+    "next": "Image suivante",
+    "close": "Fermer la galerie",
+    "counter": "{current} sur {total}",
+    "noImages": "Pas d'image"
+  },
+  "contact": {
+    "title": "Contacter le vendeur",
+    "call": "Appeler",
+    "whatsapp": "WhatsApp",
+    "orSendMessage": "Ou envoyer un message",
+    "messagePlaceholder": "Bonjour, je suis intéressé par cette annonce...",
+    "send": "Envoyer",
+    "sent": "Message envoyé !",
+    "signInToContact": "Connectez-vous pour contacter le vendeur",
+    "signIn": "Se connecter"
   },
   "metadata": {
     "title": "DARKOM — Immobilier & Services en Tunisie",
