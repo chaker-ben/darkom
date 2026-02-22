@@ -23,6 +23,7 @@ vi.mock('next-intl', () => ({
       'nav.login': 'Connexion',
       'nav.register': 'Inscription',
       'nav.favorites': 'Favoris',
+      'messages.title': 'Messages',
     };
     return translations[key] ?? key;
   },
@@ -52,6 +53,10 @@ vi.mock('@/lib/clerk-appearance', () => ({
 
 vi.mock('../language-switcher', () => ({
   LanguageSwitcher: () => React.createElement('div', { 'data-testid': 'language-switcher' }),
+}));
+
+vi.mock('@/features/messages/hooks/use-unread-count', () => ({
+  useUnreadCount: () => ({ data: 0 }),
 }));
 
 import { Header } from '../header';

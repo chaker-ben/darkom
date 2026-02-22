@@ -17,3 +17,15 @@ export const createReviewSchema = z.object({
 });
 
 export type CreateReviewInput = z.infer<typeof createReviewSchema>;
+
+export const createProSchema = z.object({
+  businessNameFr: z.string().min(2).max(100),
+  businessNameAr: z.string().max(100).optional(),
+  category: z.string().min(1),
+  phone: z.string().min(8).max(15),
+  bioFr: z.string().max(1000).optional(),
+  bioAr: z.string().max(1000).optional(),
+  governorates: z.array(z.string()).min(1, 'At least one service area required'),
+});
+
+export type CreateProInput = z.infer<typeof createProSchema>;

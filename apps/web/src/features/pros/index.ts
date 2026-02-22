@@ -1,10 +1,12 @@
 export type { ProCardData, ProDTO, ProFilters, ReviewData } from './types';
-export { proFiltersSchema, createReviewSchema } from './types/schemas';
-export type { ProFiltersInput, CreateReviewInput } from './types/schemas';
+export { proFiltersSchema, createReviewSchema, createProSchema } from './types/schemas';
+export type { ProFiltersInput, CreateReviewInput, CreateProInput } from './types/schemas';
 export { PRO_CATEGORIES } from './constants/categories';
 export type { ProCategoryValue } from './constants/categories';
 export { usePros, usePro } from './hooks/use-pros';
+export { useRegisterPro } from './hooks/use-register-pro';
 export { StarRating } from './components/star-rating';
 export { ProCard } from './components/pro-card';
+export { ProRegistrationForm } from './components/pro-registration-form';
 export { ReviewList } from './components/review-list';
 export { ProsDirectoryContent } from './components/pros-directory-content';

@@ -16,9 +16,9 @@ type CloudinarySignResponse = {
   cloudName: string;
 };
 
-export function useImageUpload(maxImages = 20) {
+export function useImageUpload(initialImages: string[] = [], maxImages = 20) {
   const [state, setState] = useState<UploadState>({
-    images: [],
+    images: initialImages,
     uploading: false,
     error: null,
   });
