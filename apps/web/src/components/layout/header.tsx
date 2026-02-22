@@ -1,17 +1,20 @@
 'use client';
 
+import { useState } from 'react';
+
 import {
   SignedIn,
   SignedOut,
   UserButton,
 } from '@clerk/nextjs';
 import { Button } from '@darkom/ui';
-import { Menu, X } from 'lucide-react';
+import { Heart, Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 
 import { Link, usePathname } from '@/i18n/navigation';
 import { clerkAppearance } from '@/lib/clerk-appearance';
+
+import { LanguageSwitcher } from './language-switcher';
 
 const navLinks = [
   { href: '/', labelKey: 'nav.home' },
@@ -55,8 +58,18 @@ export function Header() {
           })}
         </nav>
 
-        {/* Auth Buttons */}
+        {/* Actions */}
         <div className="hidden items-center gap-3 md:flex">
+          <LanguageSwitcher />
+          <SignedIn>
+            <Link
+              href="/favorites"
+              className="rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+              aria-label={t('nav.favorites')}
+            >
+              <Heart size={18} />
+            </Link>
+          </SignedIn>
           <SignedOut>
             <Link href="/sign-in">
               <Button variant="ghost" size="sm">
@@ -112,6 +125,19 @@ export function Header() {
             })}
           </nav>
           <div className="border-t border-neutral-100 px-4 py-3">
+            <div className="mb-3 flex items-center justify-between">
+              <LanguageSwitcher />
+              <SignedIn>
+                <Link
+                  href="/favorites"
+                  className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Heart size={16} />
+                  {t('nav.favorites')}
+                </Link>
+              </SignedIn>
+            </div>
             <SignedOut>
               <div className="flex flex-col gap-2">
                 <Link href="/sign-in" onClick={() => setMobileMenuOpen(false)}>

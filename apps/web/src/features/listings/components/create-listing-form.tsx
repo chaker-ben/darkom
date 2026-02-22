@@ -8,15 +8,15 @@ import { Loader2 } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useForm } from 'react-hook-form';
 
+import { ImageUploader } from './image-uploader';
 import { GOVERNORATES } from '../constants/governorates';
 import { useCreateListing } from '../hooks/use-create-listing';
 import { useImageUpload } from '../hooks/use-image-upload';
 import { createListingSchema } from '../types/schemas';
-import { ImageUploader } from './image-uploader';
 
+import type { CreateListingInput } from '../types/schemas';
 import type { Locale } from '@darkom/i18n';
 import type { SelectOption } from '@darkom/ui';
-import type { CreateListingInput } from '../types/schemas';
 
 function getGovernorateOptions(locale: Locale): SelectOption[] {
   const labelKey = locale === 'ar' ? 'labelAr' : locale === 'en' ? 'labelEn' : 'labelFr';

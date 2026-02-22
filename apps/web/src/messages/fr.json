@@ -21,7 +21,9 @@
     "button": "Rechercher",
     "allTypes": "Tout type",
     "buy": "Acheter",
-    "rent": "Louer"
+    "rent": "Louer",
+    "results": "{count} résultats pour \"{query}\"",
+    "noResults": "Aucun résultat pour \"{query}\""
   },
   "listing": {
     "forSale": "À vendre",
@@ -142,15 +144,50 @@
     "subtitle": "Trouvez le bien immobilier idéal à louer en Tunisie"
   },
   "filters": {
+    "title": "Filtres",
+    "apply": "Appliquer",
+    "reset": "Réinitialiser",
     "governorate": "Gouvernorat",
     "allGovernorates": "Tous les gouvernorats",
     "minPrice": "Prix min",
     "maxPrice": "Prix max",
+    "priceRange": "Fourchette de prix",
     "rooms": "Chambres",
+    "minRooms": "Chambres min",
     "previous": "Précédent",
     "next": "Suivant",
     "page": "Page {current} sur {total}",
     "results": "{count} résultats"
+  },
+  "favorites": {
+    "title": "Mes favoris",
+    "empty": "Vous n'avez pas encore de favoris",
+    "emptyAction": "Parcourir les annonces",
+    "added": "Ajouté aux favoris",
+    "removed": "Retiré des favoris"
+  },
+  "profile": {
+    "title": "Mon profil",
+    "fullName": "Nom complet",
+    "phone": "Téléphone",
+    "language": "Langue préférée",
+    "avatar": "Photo de profil",
+    "changeAvatar": "Changer la photo",
+    "saved": "Profil mis à jour",
+    "memberSince": "Membre depuis {date}"
+  },
+  "admin": {
+    "title": "Administration",
+    "listings": "Annonces",
+    "stats": "Statistiques",
+    "pending": "En attente",
+    "totalListings": "Total annonces",
+    "totalUsers": "Utilisateurs",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "approved": "Annonce approuvée",
+    "rejected": "Annonce rejetée",
+    "noResults": "Aucune annonce à modérer"
   },
   "metadata": {
     "title": "DARKOM — Immobilier & Services en Tunisie",

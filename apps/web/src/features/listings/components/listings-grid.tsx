@@ -2,34 +2,51 @@
 
 import { useState } from 'react';
 
-import { Button, FilterTabs, Select } from '@darkom/ui';
+import { Button, FilterTabs } from '@darkom/ui';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
-import { GOVERNORATES } from '../constants/governorates';
-import { useListings } from '../hooks/use-listings';
 import { ListingCard } from './listing-card';
 import { ListingCardSkeleton } from './listing-card-skeleton';
+import { useListings } from '../hooks/use-listings';
 
-import type { Locale } from '@darkom/i18n';
 import type { ListingFilters } from '../types';
-import type { SelectOption } from '@darkom/ui';
 import type { ListingType } from '@darkom/db';
 
 type ListingsGridProps = {
   fixedType?: ListingType;
+  externalSearch?: string;
+  externalGovernorate?: string;
+  externalMinPrice?: number;
+  externalMaxPrice?: number;
+  externalRooms?: number;
 };
 
-export function ListingsGrid({ fixedType }: ListingsGridProps) {
+export function ListingsGrid({
+  fixedType,
+  externalSearch,
+  externalGovernorate,
+  externalMinPrice,
+  externalMaxPrice,
+  externalRooms,
+}: ListingsGridProps) {
   const t = useTranslations();
-  const locale = useLocale() as Locale;
 
   const [filters, setFilters] = useState<ListingFilters>({
     type: fixedType,
     page: 1,
   });
 
-  const { data, isLoading } = useListings(filters);
+  const mergedFilters: ListingFilters = {
+    ...filters,
+    ...(externalSearch !== undefined && { search: externalSearch }),
+    ...(externalGovernorate !== undefined && { governorate: externalGovernorate }),
+    ...(externalMinPrice !== undefined && { minPrice: externalMinPrice }),
+    ...(externalMaxPrice !== undefined && { maxPrice: externalMaxPrice }),
+    ...(externalRooms !== undefined && { rooms: externalRooms }),
+  };
+
+  const { data, isLoading } = useListings(mergedFilters);
 
   const categoryTabs = [
     { value: 'all', label: t('categories.all') },
@@ -40,14 +57,6 @@ export function ListingsGrid({ fixedType }: ListingsGridProps) {
     { value: 'OFFICE', label: t('categories.office') },
   ];
 
-  const governorateOptions: SelectOption[] = [
-    { value: '', label: t('filters.allGovernorates') },
-    ...GOVERNORATES.map((g) => ({
-      value: g.value,
-      label: locale === 'ar' ? g.labelAr : locale === 'en' ? g.labelEn : g.labelFr,
-    })),
-  ];
-
   const handleCategoryChange = (value: string) => {
     setFilters((prev) => ({
       ...prev,
@@ -56,32 +65,14 @@ export function ListingsGrid({ fixedType }: ListingsGridProps) {
     }));
   };
 
-  const handleGovernorateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters((prev) => ({
-      ...prev,
-      governorate: e.target.value || undefined,
-      page: 1,
-    }));
-  };
-
   return (
     <div className="space-y-6">
-      {/* Filters */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <FilterTabs
-          items={categoryTabs}
-          value={filters.category ?? 'all'}
-          onValueChange={handleCategoryChange}
-        />
-        <div className="w-full sm:w-48">
-          <Select
-            options={governorateOptions}
-            value={filters.governorate ?? ''}
-            onChange={handleGovernorateChange}
-            size="sm"
-          />
-        </div>
-      </div>
+      {/* Category Tabs */}
+      <FilterTabs
+        items={categoryTabs}
+        value={filters.category ?? 'all'}
+        onValueChange={handleCategoryChange}
+      />
 
       {/* Results count */}
       {data && (

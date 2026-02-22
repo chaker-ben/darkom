@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation';
 import { getLocalizedField } from '@darkom/i18n';
 import { setRequestLocale } from 'next-intl/server';
 
-import { prisma } from '@/lib/prisma';
 import { ListingDetail } from '@/features/listings/components/listing-detail';
 import { ListingGallery } from '@/features/listings/components/listing-gallery';
+import { prisma } from '@/lib/prisma';
 
 import type { Locale } from '@darkom/i18n';
 import type { Metadata } from 'next';

@@ -1,5 +1,6 @@
-import { verifyWebhook } from '@clerk/backend/webhooks';
 import { NextResponse } from 'next/server';
+
+import { verifyWebhook } from '@clerk/backend/webhooks';
 
 import { prisma } from '@/lib/prisma';
 

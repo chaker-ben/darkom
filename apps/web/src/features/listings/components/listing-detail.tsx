@@ -1,13 +1,12 @@
 import Image from 'next/image';
 
-import { Badge, Button } from '@darkom/ui';
 import { getLocalizedField } from '@darkom/i18n';
+import { Badge, Button } from '@darkom/ui';
 import { formatPrice, formatSurface } from '@darkom/utils';
 import { BedDouble, Bath, Maximize, Building2, MapPin, Eye, Phone } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 
 import type { ListingDTO } from '../types';
-
 import type { Locale } from '@darkom/i18n';
 
 type ListingDetailProps = {

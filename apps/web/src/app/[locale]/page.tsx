@@ -9,12 +9,14 @@ import { Header } from '@/components/layout/header';
 import { ListingCard } from '@/features/listings/components/listing-card';
 import { ListingCardSkeleton } from '@/features/listings/components/listing-card-skeleton';
 import { useListings } from '@/features/listings/hooks/use-listings';
-import { Link } from '@/i18n/navigation';
+import { SearchBar } from '@/features/search/components/search-bar';
+import { Link, useRouter } from '@/i18n/navigation';
 
 import type { ListingCategory } from '@darkom/db';
 
 export default function HomePage() {
   const t = useTranslations();
+  const router = useRouter();
   const [category, setCategory] = useState<string>('all');
 
   const { data, isLoading } = useListings({
@@ -30,6 +32,12 @@ export default function HomePage() {
     { value: 'COMMERCIAL', label: t('categories.commercial') },
     { value: 'OFFICE', label: t('categories.office') },
   ];
+
+  const handleHeroSearch = (query: string) => {
+    if (query.trim()) {
+      router.push(`/buy?search=${encodeURIComponent(query.trim())}` as '/');
+    }
+  };
 
   return (
     <main className="min-h-screen">
@@ -60,15 +68,8 @@ export default function HomePage() {
           </p>
 
           {/* Search Bar */}
-          <div className="mt-8 flex max-w-2xl overflow-hidden rounded-2xl bg-white p-2 shadow-lg">
-            <input
-              type="text"
-              placeholder={t('search.placeholder')}
-              className="flex-1 border-none bg-transparent px-4 py-3 text-sm text-neutral-900 outline-none placeholder:text-neutral-400"
-            />
-            <Button size="md" className="rounded-xl px-6">
-              {t('search.button')}
-            </Button>
+          <div className="mt-8">
+            <SearchBar onSearch={handleHeroSearch} variant="hero" />
           </div>
 
           {/* Stats */}

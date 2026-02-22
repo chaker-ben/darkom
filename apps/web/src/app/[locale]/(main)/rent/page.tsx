@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { ListingsGrid } from '@/features/listings/components/listings-grid';
+import { RentPageContent } from '@/features/listings/components/rent-page-content';
 
 import type { Metadata } from 'next';
 
@@ -29,7 +29,7 @@ export default async function RentPage({
         <h1 className="text-2xl font-bold">{t('title')}</h1>
         <p className="mt-1 text-neutral-500">{t('subtitle')}</p>
       </div>
-      <ListingsGrid fixedType="RENT" />
+      <RentPageContent />
     </div>
   );
 }

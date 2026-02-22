@@ -1,10 +1,11 @@
-import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
-
-import { prisma } from '@/lib/prisma';
-import { updateListingSchema } from '@/features/listings/types/schemas';
-
 import type { NextRequest } from 'next/server';
+
+import { auth } from '@clerk/nextjs/server';
+
+import { updateListingSchema } from '@/features/listings/types/schemas';
+import { prisma } from '@/lib/prisma';
+
 
 type RouteContext = { params: Promise<{ id: string }> };
 

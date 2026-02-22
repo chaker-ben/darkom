@@ -1,8 +1,9 @@
 import { auth } from '@clerk/nextjs/server';
 
+import { prisma } from './prisma';
+
 import type { Profile } from '@darkom/db';
 
-import { prisma } from './prisma';
 
 /**
  * Get the current user's profile from DB, or null if not authenticated.

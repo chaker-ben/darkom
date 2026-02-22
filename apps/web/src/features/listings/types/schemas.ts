@@ -32,6 +32,7 @@ export const listingFiltersSchema = z.object({
   minPrice: z.coerce.number().positive().optional(),
   maxPrice: z.coerce.number().positive().optional(),
   rooms: z.coerce.number().int().min(0).optional(),
+  search: z.string().max(200).optional(),
   page: z.coerce.number().int().min(1).optional().default(1),
   limit: z.coerce.number().int().min(1).max(50).optional().default(12),
 });

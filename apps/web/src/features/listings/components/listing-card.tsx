@@ -1,16 +1,17 @@
+'use client';
+
 import Image from 'next/image';
 
-import { Badge, Card, CardBody } from '@darkom/ui';
 import { getLocalizedField } from '@darkom/i18n';
+import { Badge, Card, CardBody } from '@darkom/ui';
 import { formatPrice, formatSurface } from '@darkom/utils';
 import { BedDouble, Bath, Maximize } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
+import { useTranslations , useLocale } from 'next-intl';
 
+import { FavoriteButton } from '@/features/favorites/components/favorite-button';
 import { Link } from '@/i18n/navigation';
 
 import type { ListingCardData } from '../types';
-
 import type { Locale } from '@darkom/i18n';
 
 export type ListingCardProps = {
@@ -54,6 +55,11 @@ export function ListingCard({ listing }: ListingCardProps) {
                 {t('listing.featured')}
               </Badge>
             )}
+          </div>
+
+          {/* Favorite */}
+          <div className="absolute end-3 top-3">
+            <FavoriteButton listingId={listing.id} />
           </div>
         </div>
 

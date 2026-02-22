@@ -1,11 +1,12 @@
+import Image from 'next/image';
+import { redirect } from 'next/navigation';
+
 import { auth } from '@clerk/nextjs/server';
-import { Badge, Button } from '@darkom/ui';
 import { getLocalizedField } from '@darkom/i18n';
+import { Badge, Button } from '@darkom/ui';
 import { formatPrice } from '@darkom/utils';
 import { Plus } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import Image from 'next/image';
-import { redirect } from 'next/navigation';
 
 import { Link } from '@/i18n/navigation';
 import { prisma } from '@/lib/prisma';

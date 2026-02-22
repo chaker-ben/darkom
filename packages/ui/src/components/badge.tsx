@@ -17,6 +17,7 @@ export const badgeVariants = cva(
         verified: 'bg-success-50 text-success-700',
         featured: 'bg-accent-100 text-accent-700',
         warning: 'bg-accent-100 text-accent-700',
+        destructive: 'bg-red-100 text-red-700',
         category: 'border border-neutral-200 bg-white text-neutral-600',
       },
       size: {

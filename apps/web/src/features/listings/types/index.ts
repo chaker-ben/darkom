@@ -1,5 +1,5 @@
-import type { Decimal } from '@prisma/client/runtime/library';
 import type { ListingCategory, ListingStatus, ListingType } from '@darkom/db';
+import type { Decimal } from '@prisma/client/runtime/library';
 
 /** Minimal listing data for card display */
 export type ListingCardData = {
@@ -47,6 +47,7 @@ export type ListingFilters = {
   minPrice?: number;
   maxPrice?: number;
   rooms?: number;
+  search?: string;
   page?: number;
   limit?: number;
 };

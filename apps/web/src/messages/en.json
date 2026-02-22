@@ -21,7 +21,9 @@
     "button": "Search",
     "allTypes": "All types",
     "buy": "Buy",
-    "rent": "Rent"
+    "rent": "Rent",
+    "results": "{count} results for \"{query}\"",
+    "noResults": "No results for \"{query}\""
   },
   "listing": {
     "forSale": "For sale",
@@ -142,15 +144,50 @@
     "subtitle": "Find the perfect property to rent in Tunisia"
   },
   "filters": {
+    "title": "Filters",
+    "apply": "Apply",
+    "reset": "Reset",
     "governorate": "Governorate",
     "allGovernorates": "All governorates",
     "minPrice": "Min price",
     "maxPrice": "Max price",
+    "priceRange": "Price range",
     "rooms": "Bedrooms",
+    "minRooms": "Min bedrooms",
     "previous": "Previous",
     "next": "Next",
     "page": "Page {current} of {total}",
     "results": "{count} results"
+  },
+  "favorites": {
+    "title": "My favorites",
+    "empty": "You haven't added any favorites yet",
+    "emptyAction": "Browse listings",
+    "added": "Added to favorites",
+    "removed": "Removed from favorites"
+  },
+  "profile": {
+    "title": "My profile",
+    "fullName": "Full name",
+    "phone": "Phone number",
+    "language": "Preferred language",
+    "avatar": "Profile picture",
+    "changeAvatar": "Change picture",
+    "saved": "Profile updated",
+    "memberSince": "Member since {date}"
+  },
+  "admin": {
+    "title": "Administration",
+    "listings": "Listings",
+    "stats": "Statistics",
+    "pending": "Pending",
+    "totalListings": "Total listings",
+    "totalUsers": "Users",
+    "approve": "Approve",
+    "reject": "Reject",
+    "approved": "Listing approved",
+    "rejected": "Listing rejected",
+    "noResults": "No listings to moderate"
   },
   "metadata": {
     "title": "DARKOM — Real Estate & Services in Tunisia",

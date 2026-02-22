@@ -22,6 +22,7 @@ vi.mock('next-intl', () => ({
       'nav.pros': 'Artisans',
       'nav.login': 'Connexion',
       'nav.register': 'Inscription',
+      'nav.favorites': 'Favoris',
     };
     return translations[key] ?? key;
   },
@@ -47,6 +48,10 @@ vi.mock('@/i18n/navigation', () => ({
 
 vi.mock('@/lib/clerk-appearance', () => ({
   clerkAppearance: {},
+}));
+
+vi.mock('../language-switcher', () => ({
+  LanguageSwitcher: () => React.createElement('div', { 'data-testid': 'language-switcher' }),
 }));
 
 import { Header } from '../header';

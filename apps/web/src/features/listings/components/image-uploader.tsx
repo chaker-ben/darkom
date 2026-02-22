@@ -1,7 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { useCallback, useRef } from 'react';
+
+import Image from 'next/image';
 
 import { Button } from '@darkom/ui';
 import { ImagePlus, Trash2, Loader2 } from 'lucide-react';

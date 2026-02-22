@@ -21,7 +21,9 @@
     "button": "بحث",
     "allTypes": "جميع الأنواع",
     "buy": "شراء",
-    "rent": "إيجار"
+    "rent": "إيجار",
+    "results": "{count} نتيجة لـ \"{query}\"",
+    "noResults": "لا توجد نتائج لـ \"{query}\""
   },
   "listing": {
     "forSale": "للبيع",
@@ -142,15 +144,50 @@
     "subtitle": "ابحث عن العقار المثالي للاستئجار في تونس"
   },
   "filters": {
+    "title": "الفلاتر",
+    "apply": "تطبيق",
+    "reset": "إعادة ضبط",
     "governorate": "الولاية",
     "allGovernorates": "جميع الولايات",
     "minPrice": "السعر الأدنى",
     "maxPrice": "السعر الأقصى",
+    "priceRange": "نطاق السعر",
     "rooms": "الغرف",
+    "minRooms": "الحد الأدنى للغرف",
     "previous": "السابق",
     "next": "التالي",
     "page": "صفحة {current} من {total}",
     "results": "{count} نتيجة"
+  },
+  "favorites": {
+    "title": "المفضلة",
+    "empty": "لم تضف أي إعلان إلى المفضلة بعد",
+    "emptyAction": "تصفح الإعلانات",
+    "added": "تمت الإضافة إلى المفضلة",
+    "removed": "تمت الإزالة من المفضلة"
+  },
+  "profile": {
+    "title": "حسابي",
+    "fullName": "الاسم الكامل",
+    "phone": "رقم الهاتف",
+    "language": "اللغة المفضلة",
+    "avatar": "الصورة الشخصية",
+    "changeAvatar": "تغيير الصورة",
+    "saved": "تم تحديث الحساب",
+    "memberSince": "عضو منذ {date}"
+  },
+  "admin": {
+    "title": "الإدارة",
+    "listings": "الإعلانات",
+    "stats": "الإحصائيات",
+    "pending": "قيد المراجعة",
+    "totalListings": "إجمالي الإعلانات",
+    "totalUsers": "المستخدمون",
+    "approve": "قبول",
+    "reject": "رفض",
+    "approved": "تم قبول الإعلان",
+    "rejected": "تم رفض الإعلان",
+    "noResults": "لا توجد إعلانات للمراجعة"
   },
   "metadata": {
     "title": "داركم — عقارات وخدمات في تونس",

@@ -1,10 +1,11 @@
-import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
-
-import { prisma } from '@/lib/prisma';
-import { createListingSchema, listingFiltersSchema } from '@/features/listings/types/schemas';
-
 import type { NextRequest } from 'next/server';
+
+import { auth } from '@clerk/nextjs/server';
+
+import { createListingSchema, listingFiltersSchema } from '@/features/listings/types/schemas';
+import { prisma } from '@/lib/prisma';
+
 
 const ITEMS_PER_PAGE = 12;
 
@@ -30,6 +31,15 @@ export async function GET(request: NextRequest) {
           }
         : {}),
       ...(filters.rooms !== undefined && { rooms: { gte: filters.rooms } }),
+      ...(filters.search && {
+        OR: [
+          { titleFr: { contains: filters.search, mode: 'insensitive' as const } },
+          { titleAr: { contains: filters.search, mode: 'insensitive' as const } },
+          { titleEn: { contains: filters.search, mode: 'insensitive' as const } },
+          { city: { contains: filters.search, mode: 'insensitive' as const } },
+          { governorate: { contains: filters.search, mode: 'insensitive' as const } },
+        ],
+      }),
     };
 
     const [listings, total] = await prisma.$transaction([

@@ -9,6 +9,8 @@ const isProtectedRoute = createRouteMatcher([
   '/(fr|ar|en)/dashboard(.*)',
   '/(fr|ar|en)/admin(.*)',
   '/(fr|ar|en)/listings/new',
+  '/(fr|ar|en)/favorites(.*)',
+  '/(fr|ar|en)/profile(.*)',
 ]);
 
 const isApiRoute = createRouteMatcher(['/api(.*)']);

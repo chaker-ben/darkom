@@ -23,6 +23,7 @@ function buildQueryString(filters: ListingFilters): string {
   if (filters.minPrice) params.set('minPrice', String(filters.minPrice));
   if (filters.maxPrice) params.set('maxPrice', String(filters.maxPrice));
   if (filters.rooms !== undefined) params.set('rooms', String(filters.rooms));
+  if (filters.search) params.set('search', filters.search);
   if (filters.page) params.set('page', String(filters.page));
   if (filters.limit) params.set('limit', String(filters.limit));
 
