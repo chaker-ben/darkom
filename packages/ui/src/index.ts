@@ -15,5 +15,11 @@ export type { CardProps, CardImageProps, CardBodyProps, CardTitleProps, CardMeta
 export { Input, inputVariants } from './components/input';
 export type { InputProps } from './components/input';
 
+export { Textarea, textareaVariants } from './components/textarea';
+export type { TextareaProps } from './components/textarea';
+
+export { Select, selectVariants } from './components/select';
+export type { SelectProps, SelectOption } from './components/select';
+
 export { FilterTabs } from './components/filter-tabs';
 export type { FilterTabsProps, FilterTabItem } from './components/filter-tabs';

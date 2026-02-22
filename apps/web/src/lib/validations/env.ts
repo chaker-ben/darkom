@@ -8,6 +8,8 @@ const envSchema = z.object({
   NEXT_PUBLIC_MAPBOX_TOKEN: z.string().optional(),
   CLERK_WEBHOOK_SIGNING_SECRET: z.string().min(1),
   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string().optional(),
+  CLOUDINARY_API_KEY: z.string().optional(),
+  CLOUDINARY_API_SECRET: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;

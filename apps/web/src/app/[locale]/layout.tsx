@@ -6,6 +6,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 
+import { Providers } from '@/components/providers';
 import { getDirection, isRTL } from '@/i18n/config';
 import type { Locale } from '@/i18n/config';
 import { routing } from '@/i18n/navigation';
@@ -78,7 +79,7 @@ export default async function LocaleLayout({
       <html lang={locale} dir={dir} suppressHydrationWarning>
         <body className={rtl ? 'font-arabic' : 'font-sans'}>
           <NextIntlClientProvider messages={messages}>
-            {children}
+            <Providers>{children}</Providers>
           </NextIntlClientProvider>
         </body>
       </html>

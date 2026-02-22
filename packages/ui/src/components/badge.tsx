@@ -12,9 +12,11 @@ export const badgeVariants = cva(
     variants: {
       variant: {
         default: 'bg-primary-100 text-primary-700',
+        secondary: 'bg-neutral-100 text-neutral-700',
         overlay: 'bg-black/60 text-white backdrop-blur-sm',
         verified: 'bg-success-50 text-success-700',
         featured: 'bg-accent-100 text-accent-700',
+        warning: 'bg-accent-100 text-accent-700',
         category: 'border border-neutral-200 bg-white text-neutral-600',
       },
       size: {

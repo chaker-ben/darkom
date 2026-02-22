@@ -2,22 +2,33 @@
 
 import { useState } from 'react';
 
-import { Badge, Button, Card, CardBody, FilterTabs, Skeleton } from '@darkom/ui';
+import { Badge, Button, FilterTabs } from '@darkom/ui';
 import { useTranslations } from 'next-intl';
 
 import { Header } from '@/components/layout/header';
+import { ListingCard } from '@/features/listings/components/listing-card';
+import { ListingCardSkeleton } from '@/features/listings/components/listing-card-skeleton';
+import { useListings } from '@/features/listings/hooks/use-listings';
+import { Link } from '@/i18n/navigation';
+
+import type { ListingCategory } from '@darkom/db';
 
 export default function HomePage() {
   const t = useTranslations();
-  const [category, setCategory] = useState('all');
+  const [category, setCategory] = useState<string>('all');
+
+  const { data, isLoading } = useListings({
+    category: category === 'all' ? undefined : (category as ListingCategory),
+    limit: 6,
+  });
 
   const categories = [
     { value: 'all', label: t('categories.all') },
-    { value: 'apartment', label: t('categories.apartment') },
-    { value: 'house', label: t('categories.house') },
-    { value: 'land', label: t('categories.land') },
-    { value: 'commercial', label: t('categories.commercial') },
-    { value: 'office', label: t('categories.office') },
+    { value: 'APARTMENT', label: t('categories.apartment') },
+    { value: 'HOUSE', label: t('categories.house') },
+    { value: 'LAND', label: t('categories.land') },
+    { value: 'COMMERCIAL', label: t('categories.commercial') },
+    { value: 'OFFICE', label: t('categories.office') },
   ];
 
   return (
@@ -83,26 +94,32 @@ export default function HomePage() {
         <FilterTabs items={categories} value={category} onValueChange={setCategory} />
       </section>
 
-      {/* Placeholder for listings grid */}
+      {/* Recent listings */}
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-xl font-bold">{t('listing.recent')}</h2>
-          <Button variant="ghost" size="sm">
-            {t('listing.seeAll')}
-          </Button>
+          <Link href="/buy">
+            <Button variant="ghost" size="sm">
+              {t('listing.seeAll')}
+            </Button>
+          </Link>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <Card key={i}>
-              <Skeleton className="h-48 w-full rounded-none" />
-              <CardBody>
-                <Skeleton className="mb-2 h-5 w-24" />
-                <Skeleton className="mb-1 h-4 w-full" />
-                <Skeleton className="h-3 w-2/3" />
-              </CardBody>
-            </Card>
-          ))}
+          {isLoading
+            ? Array.from({ length: 6 }).map((_, i) => (
+                <ListingCardSkeleton key={i} />
+              ))
+            : data?.data.map((listing) => (
+                <ListingCard key={listing.id} listing={listing} />
+              ))}
         </div>
+
+        {/* Empty state */}
+        {!isLoading && data?.data.length === 0 && (
+          <div className="flex flex-col items-center justify-center py-16">
+            <p className="text-neutral-500">{t('common.noResults')}</p>
+          </div>
+        )}
       </section>
     </main>
   );

@@ -21,6 +21,8 @@ export const buttonVariants = cva(
           'bg-accent-400 text-primary-900 hover:bg-accent-500 active:bg-accent-600',
         ghost:
           'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900',
+        destructive:
+          'bg-error-500 text-white hover:bg-error-600 active:bg-error-700',
         success:
           'bg-success-500 text-white hover:bg-success-600 active:bg-success-700',
       },

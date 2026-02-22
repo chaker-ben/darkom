@@ -1,9 +1,7 @@
 import { verifyWebhook } from '@clerk/backend/webhooks';
 import { NextResponse } from 'next/server';
 
-import { PrismaClient } from '@darkom/db';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 export async function POST(request: Request) {
   try {
