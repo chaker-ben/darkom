@@ -139,8 +139,7 @@
   },
   "hero": {
     "eyebrow": "Annonces vérifiées • Artisans certifiés",
-    "title": "Trouvez votre {highlight} en Tunisie",
-    "titleHighlight": "maison idéale",
+    "title": "Trouvez votre <highlight>maison idéale</highlight> en Tunisie",
     "subtitle": "La seule plateforme qui combine immobilier vérifié et artisans de confiance — partout en Tunisie"
   },
   "common": {

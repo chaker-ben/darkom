@@ -9,7 +9,7 @@ const isProtectedRoute = createRouteMatcher([
   '/(fr|ar|en)/dashboard(.*)',
   '/(fr|ar|en)/admin(.*)',
   '/(fr|ar|en)/listings/new',
-  '/(fr|ar|en)/listings/.*/edit',
+  '/(fr|ar|en)/listings/(.*)/edit',
   '/(fr|ar|en)/favorites(.*)',
   '/(fr|ar|en)/profile(.*)',
   '/(fr|ar|en)/messages(.*)',

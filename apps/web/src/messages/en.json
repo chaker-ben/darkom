@@ -139,8 +139,7 @@
   },
   "hero": {
     "eyebrow": "Verified listings • Certified craftsmen",
-    "title": "Find your {highlight} in Tunisia",
-    "titleHighlight": "perfect home",
+    "title": "Find your <highlight>perfect home</highlight> in Tunisia",
     "subtitle": "The only platform combining verified real estate and trusted craftsmen — across Tunisia"
   },
   "common": {
