@@ -8,9 +8,10 @@ import {
   UserButton,
 } from '@clerk/nextjs';
 import { Button } from '@darkom/ui';
-import { Heart, Menu, X } from 'lucide-react';
+import { Heart, Menu, MessageSquare, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
+import { useUnreadCount } from '@/features/messages/hooks/use-unread-count';
 import { Link, usePathname } from '@/i18n/navigation';
 import { clerkAppearance } from '@/lib/clerk-appearance';
 
@@ -22,6 +23,26 @@ const navLinks = [
   { href: '/rent', labelKey: 'nav.rent' },
   { href: '/pros', labelKey: 'nav.pros' },
 ] as const;
+
+function InboxIcon() {
+  const { data: unreadCount } = useUnreadCount();
+  const t = useTranslations();
+
+  return (
+    <Link
+      href="/messages"
+      className="relative rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+      aria-label={t('messages.title')}
+    >
+      <MessageSquare size={18} />
+      {(unreadCount ?? 0) > 0 && (
+        <span className="absolute -end-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+          {unreadCount}
+        </span>
+      )}
+    </Link>
+  );
+}
 
 export function Header() {
   const t = useTranslations();
@@ -69,6 +90,7 @@ export function Header() {
             >
               <Heart size={18} />
             </Link>
+            <InboxIcon />
           </SignedIn>
           <SignedOut>
             <Link href="/sign-in">
@@ -135,6 +157,14 @@ export function Header() {
                 >
                   <Heart size={16} />
                   {t('nav.favorites')}
+                </Link>
+                <Link
+                  href="/messages"
+                  className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <MessageSquare size={16} />
+                  {t('messages.title')}
                 </Link>
               </SignedIn>
             </div>

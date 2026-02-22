@@ -14,6 +14,7 @@
     "register": "Register",
     "publish": "Post a listing",
     "favorites": "Favorites",
+    "messages": "Messages",
     "profile": "Profile"
   },
   "search": {
@@ -73,7 +74,11 @@
       "description": "Description",
       "location": "Location",
       "views": "{count} views"
-    }
+    },
+    "editTitle": "Edit listing",
+    "editSubmit": "Save changes",
+    "editSuccess": "Listing updated",
+    "editPendingNotice": "Your listing will be reviewed again after editing"
   },
   "categories": {
     "apartment": "Apartment",
@@ -103,6 +108,17 @@
     "reviewPlaceholder": "Share your experience...",
     "submitReview": "Submit review",
     "reviewSubmitted": "Review submitted!",
+    "registerTitle": "Become a DARKOM craftsman",
+    "registerSubtitle": "Join our network of professionals",
+    "step1": "Information",
+    "step2": "Services",
+    "step3": "Confirmation",
+    "businessName": "Business name",
+    "phone": "Professional phone",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Register",
+    "success": "Registration successful!",
     "categories": {
       "plumber": "Plumber",
       "electrician": "Electrician",
@@ -158,6 +174,20 @@
       "REJECTED": "Rejected",
       "DRAFT": "Draft",
       "SOLD": "Sold"
+    },
+    "stats": {
+      "total": "Total listings",
+      "active": "Active",
+      "views": "Total views",
+      "pending": "Pending"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirmDelete": "Delete this listing?",
+      "confirmDeleteDesc": "This action cannot be undone",
+      "cancel": "Cancel",
+      "deleted": "Listing deleted"
     }
   },
   "buy": {
@@ -254,6 +284,43 @@
     "sent": "Message sent!",
     "signInToContact": "Sign in to contact the seller",
     "signIn": "Sign in"
+  },
+  "messages": {
+    "title": "Messages",
+    "inbox": "Inbox",
+    "noMessages": "No messages",
+    "noMessagesDesc": "Your conversations will appear here",
+    "typeMessage": "Type a message...",
+    "send": "Send",
+    "you": "You",
+    "unread": "{count} unread"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Choose the plan that fits your needs",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "yearlyDiscount": "Save 20%",
+    "perMonth": "/month",
+    "popular": "Popular",
+    "free": "Free",
+    "getStarted": "Get started",
+    "subscribe": "Subscribe",
+    "contactUs": "Contact us",
+    "plans": {
+      "free": "Free",
+      "pro": "Pro",
+      "premium": "Premium"
+    },
+    "features": {
+      "listings": "3 listings",
+      "unlimitedListings": "Unlimited listings",
+      "verifiedBadge": "Verified badge",
+      "priority": "Priority in results",
+      "featured": "Featured listings",
+      "analytics": "Detailed analytics",
+      "support": "Dedicated support"
+    }
   },
   "metadata": {
     "title": "DARKOM — Real Estate & Services in Tunisia",

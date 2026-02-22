@@ -14,6 +14,7 @@
     "register": "إنشاء حساب",
     "publish": "نشر إعلان",
     "favorites": "المفضلة",
+    "messages": "الرسائل",
     "profile": "حسابي"
   },
   "search": {
@@ -73,7 +74,11 @@
       "description": "الوصف",
       "location": "الموقع",
       "views": "{count} مشاهدة"
-    }
+    },
+    "editTitle": "تعديل الإعلان",
+    "editSubmit": "حفظ التعديلات",
+    "editSuccess": "تم تحديث الإعلان",
+    "editPendingNotice": "سيتم مراجعة إعلانك مجدداً بعد التعديل"
   },
   "categories": {
     "apartment": "شقق",
@@ -103,6 +108,17 @@
     "reviewPlaceholder": "\u0634\u0627\u0631\u0643 \u062a\u062c\u0631\u0628\u062a\u0643...",
     "submitReview": "\u0646\u0634\u0631 \u0627\u0644\u062a\u0642\u064a\u064a\u0645",
     "reviewSubmitted": "\u062a\u0645 \u0646\u0634\u0631 \u0627\u0644\u062a\u0642\u064a\u064a\u0645!",
+    "registerTitle": "انضم كحرفي في داركم",
+    "registerSubtitle": "انضم إلى شبكة المهنيين لدينا",
+    "step1": "المعلومات",
+    "step2": "الخدمات",
+    "step3": "التأكيد",
+    "businessName": "اسم المؤسسة",
+    "phone": "الهاتف المهني",
+    "next": "التالي",
+    "previous": "السابق",
+    "submit": "تسجيل",
+    "success": "تم التسجيل بنجاح!",
     "categories": {
       "plumber": "\u0633\u0628\u0627\u0643",
       "electrician": "\u0643\u0647\u0631\u0628\u0627\u0626\u064a",
@@ -158,6 +174,20 @@
       "REJECTED": "مرفوض",
       "DRAFT": "مسودة",
       "SOLD": "مباع"
+    },
+    "stats": {
+      "total": "إجمالي الإعلانات",
+      "active": "نشطة",
+      "views": "إجمالي المشاهدات",
+      "pending": "قيد المراجعة"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "delete": "حذف",
+      "confirmDelete": "حذف هذا الإعلان؟",
+      "confirmDeleteDesc": "هذا الإجراء لا يمكن التراجع عنه",
+      "cancel": "إلغاء",
+      "deleted": "تم حذف الإعلان"
     }
   },
   "buy": {
@@ -254,6 +284,43 @@
     "sent": "تم إرسال الرسالة!",
     "signInToContact": "سجّل الدخول للتواصل مع البائع",
     "signIn": "تسجيل الدخول"
+  },
+  "messages": {
+    "title": "الرسائل",
+    "inbox": "صندوق الوارد",
+    "noMessages": "لا توجد رسائل",
+    "noMessagesDesc": "ستظهر محادثاتك هنا",
+    "typeMessage": "اكتب رسالة...",
+    "send": "إرسال",
+    "you": "أنت",
+    "unread": "{count} غير مقروءة"
+  },
+  "pricing": {
+    "title": "عروضنا",
+    "subtitle": "اختر الخطة المناسبة لاحتياجاتك",
+    "monthly": "شهري",
+    "yearly": "سنوي",
+    "yearlyDiscount": "وفّر 20%",
+    "perMonth": "/شهر",
+    "popular": "الأكثر شعبية",
+    "free": "مجاني",
+    "getStarted": "ابدأ",
+    "subscribe": "اشترك",
+    "contactUs": "تواصل معنا",
+    "plans": {
+      "free": "مجاني",
+      "pro": "احترافي",
+      "premium": "مميز"
+    },
+    "features": {
+      "listings": "3 إعلانات",
+      "unlimitedListings": "إعلانات غير محدودة",
+      "verifiedBadge": "شارة التوثيق",
+      "priority": "أولوية في النتائج",
+      "featured": "إعلانات مميزة",
+      "analytics": "إحصائيات مفصلة",
+      "support": "دعم مخصص"
+    }
   },
   "metadata": {
     "title": "داركم — عقارات وخدمات في تونس",

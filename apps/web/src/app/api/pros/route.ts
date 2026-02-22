@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-import { proFiltersSchema } from '@/features/pros/types/schemas';
+import { auth } from '@clerk/nextjs/server';
+import { z } from 'zod';
+
+import { createProSchema, proFiltersSchema } from '@/features/pros/types/schemas';
 import { prisma } from '@/lib/prisma';
 
 export async function GET(request: NextRequest) {
@@ -62,6 +65,68 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error('[GET /api/pros]', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 },
+    );
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const { userId } = await auth();
+    if (!userId) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const profile = await prisma.profile.findUnique({
+      where: { clerkId: userId },
+      select: { id: true },
+    });
+
+    if (!profile) {
+      return NextResponse.json({ error: 'Profile not found' }, { status: 404 });
+    }
+
+    const existingPro = await prisma.pro.findUnique({
+      where: { userId: profile.id },
+    });
+
+    if (existingPro) {
+      return NextResponse.json({ error: 'Already registered as pro' }, { status: 409 });
+    }
+
+    const body: unknown = await request.json();
+    const data = createProSchema.parse(body);
+
+    const [pro] = await prisma.$transaction([
+      prisma.pro.create({
+        data: {
+          userId: profile.id,
+          businessNameFr: data.businessNameFr,
+          businessNameAr: data.businessNameAr ?? null,
+          category: data.category,
+          phone: data.phone,
+          bioFr: data.bioFr ?? null,
+          bioAr: data.bioAr ?? null,
+          governorates: data.governorates,
+        },
+      }),
+      prisma.profile.update({
+        where: { id: profile.id },
+        data: { role: 'PRO' },
+      }),
+    ]);
+
+    return NextResponse.json({ data: pro }, { status: 201 });
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Validation error', details: error.errors },
+        { status: 400 },
+      );
+    }
+    console.error('[POST /api/pros]', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 },

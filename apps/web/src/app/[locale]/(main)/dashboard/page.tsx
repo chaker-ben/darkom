@@ -8,6 +8,8 @@ import { formatPrice } from '@darkom/utils';
 import { Plus } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import { DashboardStats } from '@/features/dashboard/components/dashboard-stats';
+import { ListingActions } from '@/features/dashboard/components/listing-actions';
 import { Link } from '@/i18n/navigation';
 import { prisma } from '@/lib/prisma';
 
@@ -73,6 +75,13 @@ export default async function DashboardPage({
     },
   });
 
+  const stats = {
+    total: listings.length,
+    active: listings.filter((l) => l.status === 'VERIFIED').length,
+    totalViews: listings.reduce((sum, l) => sum + l.viewsCount, 0),
+    pending: listings.filter((l) => l.status === 'PENDING').length,
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-8 flex items-center justify-between">
@@ -83,6 +92,10 @@ export default async function DashboardPage({
             {t('newListing')}
           </Button>
         </Link>
+      </div>
+
+      <div className="mb-8">
+        <DashboardStats {...stats} />
       </div>
 
       {listings.length === 0 ? (
@@ -136,11 +149,7 @@ export default async function DashboardPage({
                     </span>
                   </div>
                 </div>
-                <Link href={`/listings/${listing.id}`}>
-                  <Button variant="ghost" size="sm">
-                    {t('view')}
-                  </Button>
-                </Link>
+                <ListingActions listingId={listing.id} />
               </div>
             );
           })}

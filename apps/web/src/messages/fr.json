@@ -14,6 +14,7 @@
     "register": "Inscription",
     "publish": "Publier une annonce",
     "favorites": "Favoris",
+    "messages": "Messages",
     "profile": "Profil"
   },
   "search": {
@@ -73,7 +74,11 @@
       "description": "Description",
       "location": "Localisation",
       "views": "{count} vues"
-    }
+    },
+    "editTitle": "Modifier l'annonce",
+    "editSubmit": "Enregistrer les modifications",
+    "editSuccess": "Annonce mise à jour",
+    "editPendingNotice": "Votre annonce sera réexaminée après modification"
   },
   "categories": {
     "apartment": "Appartement",
@@ -103,6 +108,17 @@
     "reviewPlaceholder": "Partagez votre exp\u00e9rience...",
     "submitReview": "Publier l'avis",
     "reviewSubmitted": "Avis publi\u00e9 !",
+    "registerTitle": "Devenir artisan DARKOM",
+    "registerSubtitle": "Rejoignez notre réseau de professionnels",
+    "step1": "Informations",
+    "step2": "Services",
+    "step3": "Confirmation",
+    "businessName": "Nom de l'entreprise",
+    "phone": "Téléphone professionnel",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "S'inscrire",
+    "success": "Inscription réussie !",
     "categories": {
       "plumber": "Plombier",
       "electrician": "\u00c9lectricien",
@@ -158,6 +174,20 @@
       "REJECTED": "Rejeté",
       "DRAFT": "Brouillon",
       "SOLD": "Vendu"
+    },
+    "stats": {
+      "total": "Total annonces",
+      "active": "Actives",
+      "views": "Vues totales",
+      "pending": "En attente"
+    },
+    "actions": {
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "confirmDelete": "Supprimer cette annonce ?",
+      "confirmDeleteDesc": "Cette action est irréversible",
+      "cancel": "Annuler",
+      "deleted": "Annonce supprimée"
     }
   },
   "buy": {
@@ -254,6 +284,43 @@
     "sent": "Message envoyé !",
     "signInToContact": "Connectez-vous pour contacter le vendeur",
     "signIn": "Se connecter"
+  },
+  "messages": {
+    "title": "Messages",
+    "inbox": "Boîte de réception",
+    "noMessages": "Aucun message",
+    "noMessagesDesc": "Vos conversations apparaîtront ici",
+    "typeMessage": "Écrire un message...",
+    "send": "Envoyer",
+    "you": "Vous",
+    "unread": "{count} non lu(s)"
+  },
+  "pricing": {
+    "title": "Nos offres",
+    "subtitle": "Choisissez le plan adapté à vos besoins",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "yearlyDiscount": "Économisez 20%",
+    "perMonth": "/mois",
+    "popular": "Populaire",
+    "free": "Gratuit",
+    "getStarted": "Commencer",
+    "subscribe": "S'abonner",
+    "contactUs": "Nous contacter",
+    "plans": {
+      "free": "Gratuit",
+      "pro": "Pro",
+      "premium": "Premium"
+    },
+    "features": {
+      "listings": "3 annonces",
+      "unlimitedListings": "Annonces illimitées",
+      "verifiedBadge": "Badge vérifié",
+      "priority": "Priorité dans les résultats",
+      "featured": "Annonces mises en avant",
+      "analytics": "Statistiques détaillées",
+      "support": "Support dédié"
+    }
   },
   "metadata": {
     "title": "DARKOM — Immobilier & Services en Tunisie",
